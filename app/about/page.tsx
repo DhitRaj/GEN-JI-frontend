@@ -1,23 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Navbar from '../../components/Navbar';
+import PageScene from '../../components/three/PageScene';
 import Footer from '../../components/Footer';
-import PageHero from '../../components/PageHero';
 
 const values = [
-  {
-    title: 'Product-First Thinking',
-    desc: 'Every feature is mapped to business outcomes, not just code delivery.',
-  },
-  {
-    title: 'Engineering Quality',
-    desc: 'Scalable architecture, secure APIs, and maintainable code standards.',
-  },
-  {
-    title: 'Clear Communication',
-    desc: 'Transparent timelines, milestone updates, and no hidden surprises.',
-  },
+  { title: 'Product-First Thinking', desc: 'Every feature is mapped to business outcomes, not just code delivery.' },
+  { title: 'Engineering Quality', desc: 'Scalable architecture, secure APIs, and maintainable code standards.' },
+  { title: 'Clear Communication', desc: 'Transparent timelines, milestone updates, and no hidden surprises.' },
 ];
 
 const milestones = [
@@ -27,91 +17,62 @@ const milestones = [
   { year: '04', title: 'Launch', desc: 'We test, refine, deploy, and hand over with a clear operating roadmap.' },
 ];
 
-const stats = [
-  { value: '12+', label: 'Reusable UI patterns' },
-  { value: '24h', label: 'Typical response time' },
-  { value: '99%', label: 'Delivery reliability' },
-];
+const GlassCard = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => (
+  <div className={`p-10 rounded-[3rem] border border-black/5 bg-white/60 backdrop-blur-[60px] shadow-xl ${className}`}>
+    {children}
+  </div>
+);
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen relative overflow-hidden">
-      <Navbar />
+    <PageScene title="About" pages={5}>
+      <div className="flex flex-col items-center">
+        {/* HERO SPACER */}
+        <div className="h-screen w-full" />
 
-      <PageHero
-        eyebrow="About Gen-Ji"
-        title="We build digital products that perform and scale."
-        description="Gen-Ji is a modern SaaS engineering partner focused on high-impact websites, robust backend systems, and clean admin workflows for growing teams."
-        breadcrumbs={[
-          { label: 'Home', href: '/' },
-          { label: 'About' },
-        ]}
-      />
+        {/* MISSION */}
+        <div className="min-h-screen w-full flex items-center justify-center p-6">
+          <GlassCard className="max-w-5xl text-center">
+            <h1 className="text-5xl md:text-9xl font-black mb-6 uppercase tracking-tighter leading-none bg-clip-text text-transparent bg-gradient-to-br from-slate-900 via-slate-700 to-slate-500">
+              WHO <span className="italic">WE ARE</span>
+            </h1>
+            <p className="text-2xl text-slate-600 font-light leading-relaxed max-w-3xl mx-auto">
+              Gen-Ji is a modern SaaS engineering partner focused on high-impact websites, robust backend systems, and clean admin workflows for growing teams.
+            </p>
+          </GlassCard>
+        </div>
 
-      <section className="pb-20">
-        <div className="section-shell grid md:grid-cols-3 gap-6">
+        {/* VALUES */}
+        <div className="min-h-screen w-full grid grid-cols-1 md:grid-cols-3 gap-8 p-10 max-w-7xl mx-auto items-center">
           {values.map((item, idx) => (
-            <motion.article
-              key={item.title}
-              className="card"
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.35, delay: idx * 0.08 }}
-            >
-              <h2 className="text-2xl font-bold">{item.title}</h2>
-              <p className="text-slate-600 mt-3 leading-relaxed">{item.desc}</p>
-            </motion.article>
+            <GlassCard key={idx} className="h-full flex flex-col justify-center">
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">{item.title}</h2>
+              <p className="text-slate-500 text-lg leading-relaxed">{item.desc}</p>
+            </GlassCard>
           ))}
         </div>
-      </section>
 
-      <section className="pb-20">
-        <div className="section-shell grid lg:grid-cols-12 gap-6 items-stretch">
-          <motion.div
-            className="card lg:col-span-5"
-            initial={{ opacity: 0, x: -18 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">Our Story</p>
-            <h2 className="text-3xl font-bold mt-3">Built for teams that want a premium digital presence.</h2>
-            <p className="text-slate-600 mt-4 leading-relaxed">
-              Gen-Ji focuses on clean interfaces, thoughtful systems, and reliable execution. We keep the product simple for users and scalable for the business.
-            </p>
-            <div className="mt-6 grid grid-cols-3 gap-3">
-              {stats.map((stat) => (
-                <div key={stat.label} className="rounded-2xl border border-white/70 bg-white/45 p-4 text-center backdrop-blur-md">
-                  <div className="text-2xl font-bold text-blue-600">{stat.value}</div>
-                  <div className="text-xs text-slate-500 mt-1">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="card lg:col-span-7"
-            initial={{ opacity: 0, x: 18 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">How We Work</p>
-            <div className="mt-5 space-y-4">
-              {milestones.map((item) => (
-                <div key={item.title} className="grid sm:grid-cols-[72px,1fr] gap-4 items-start rounded-2xl border border-white/70 bg-white/45 p-4 backdrop-blur-md">
-                  <div className="text-2xl font-bold text-blue-600">{item.year}</div>
+        {/* MILESTONES */}
+        <div className="min-h-screen w-full flex items-center justify-center p-10">
+          <GlassCard className="max-w-6xl w-full">
+            <h2 className="text-4xl font-black text-slate-900 mb-12 uppercase tracking-widest text-center">Our Story</h2>
+            <div className="space-y-6">
+              {milestones.map((item, idx) => (
+                <div key={idx} className="flex gap-8 items-start border-b border-black/5 pb-6 last:border-0">
+                  <div className="text-4xl font-black text-slate-200">{item.year}</div>
                   <div>
-                    <h3 className="text-xl font-semibold">{item.title}</h3>
-                    <p className="text-slate-600 mt-1 leading-relaxed">{item.desc}</p>
+                    <h3 className="text-2xl font-bold text-slate-900">{item.title}</h3>
+                    <p className="text-slate-500 text-lg">{item.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
-          </motion.div>
+          </GlassCard>
         </div>
-      </section>
 
-      <Footer />
-    </main>
+        {/* FOOTER */}
+        <Footer />
+      </div>
+    </PageScene>
   );
 }

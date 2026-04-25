@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const VS_SOURCE = `
   attribute vec4 aVertexPosition;
@@ -156,10 +156,27 @@ const initShaderProgram = (
 
 const ShaderBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+
+  useEffect(() => {
+    const updateTheme = () => {
+      setIsDarkTheme(document.documentElement.classList.contains('dark'));
+    };
+
+    updateTheme();
+
+    const observer = new MutationObserver(updateTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return undefined;
+    if (!canvas || !isDarkTheme) return undefined;
 
     const gl = canvas.getContext('webgl');
     if (!gl) {
@@ -230,7 +247,11 @@ const ShaderBackground = () => {
       window.removeEventListener('resize', resizeCanvas);
       window.cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [isDarkTheme]);
+
+  if (!isDarkTheme) {
+    return null;
+  }
 
   return <canvas ref={canvasRef} className="fixed inset-0 z-0 h-full w-full pointer-events-none" />;
 };

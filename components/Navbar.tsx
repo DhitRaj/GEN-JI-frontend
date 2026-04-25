@@ -1,13 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { MdMenu, MdClose, MdLightMode, MdDarkMode } from 'react-icons/md';
+import { useState } from 'react';
+import { MdMenu, MdClose } from 'react-icons/md';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDark, setIsDark] = useState(false);
   const pathname = usePathname();
 
   const navItems = [
@@ -15,7 +14,6 @@ export default function Navbar() {
     { label: 'About', href: '/about' },
     { label: 'Services', href: '/services' },
     { label: 'Projects', href: '/projects' },
-    { label: 'Features', href: '/features' },
     { label: 'Contact', href: '/contact' },
   ];
 
@@ -23,101 +21,58 @@ export default function Navbar() {
 
   const navLinkClass = (href: string) =>
     [
-      'px-3 py-2 rounded-xl text-sm font-medium transition-all duration-200',
+      'px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 border border-transparent',
       isActive(href)
-        ? 'bg-blue-600 text-white shadow-[0_10px_24px_rgba(37,99,235,0.25)]'
-        : 'text-slate-700 hover:text-blue-600 hover:bg-white/55 dark:text-slate-200 dark:hover:bg-white/10',
+        ? 'bg-[#0f172a] text-white shadow-[0_12px_28px_rgba(15,23,42,0.15)]'
+        : 'text-slate-600 hover:text-black hover:bg-black/5',
     ].join(' ');
 
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const nextIsDark = savedTheme ? savedTheme === 'dark' : prefersDark;
-
-    setIsDark(nextIsDark);
-    document.documentElement.classList.toggle('dark', nextIsDark);
-  }, []);
-
-  useEffect(() => {
-    document.documentElement.classList.toggle('dark', isDark);
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  }, [isDark]);
-
   return (
-    <nav className="sticky top-4 z-50">
-      <div className="section-shell">
-        <div className="glass-panel flex justify-between items-center h-16 rounded-2xl px-4 md:px-6">
-          <div className="flex items-center gap-4">
-            <Link href="/" className="text-xl md:text-2xl font-bold text-blue-600 tracking-tight">
-              Gen-Ji <span className="text-slate-500 dark:text-slate-300 text-sm">Studio</span>
-            </Link>
-            <span className="glass-chip hidden lg:inline-flex px-3 py-1 rounded-full text-xs font-semibold text-slate-600 dark:text-slate-200">
-              {navItems.find((item) => isActive(item.href))?.label || 'Home'}
+    <nav className="w-full">
+      <div className="glass-panel flex items-center justify-between gap-4 rounded-[1.75rem] border border-black/5 px-4 py-3 md:px-6 md:py-4 shadow-xl backdrop-blur-3xl bg-white/40">
+        <div className="flex items-center gap-4 min-w-0">
+          <Link href="/" className="group flex items-center gap-3 min-w-0">
+            <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-slate-800 to-black text-white shadow-lg transition-transform duration-200 group-hover:-translate-y-0.5 font-black">
+              GJ
             </span>
-          </div>
-
-          <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <Link key={item.href} href={item.href} className={navLinkClass(item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>
-                {item.label}
-              </Link>
-            ))}
-            <Link
-              href="/admin"
-              className="btn btn-primary py-2 px-4 text-sm"
-            >
-              Admin
-            </Link>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => setIsDark(!isDark)}
-              className="p-2 hover:bg-white/60 dark:hover:bg-white/10 rounded-xl text-slate-700 dark:text-slate-200 transition"
-              aria-label="Toggle theme"
-              aria-pressed={isDark}
-            >
-              {isDark ? <MdLightMode size={20} /> : <MdDarkMode size={20} />}
-            </button>
-
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-2 hover:bg-white/60 rounded-xl text-slate-700 transition"
-              aria-label="Toggle menu"
-            >
-              {isOpen ? <MdClose size={24} /> : <MdMenu size={24} />}
-            </button>
-          </div>
+            <span className="min-w-0">
+              <span className="block text-lg md:text-xl font-bold tracking-tight text-slate-900">
+                Gen-Ji<span className="text-slate-900">.</span>
+              </span>
+              <span className="block text-[11px] uppercase tracking-[0.24em] text-slate-400">
+                Digital Studio
+              </span>
+            </span>
+          </Link>
         </div>
 
-        {isOpen && (
-          <div className="glass-panel md:hidden mt-3 rounded-2xl p-4 space-y-3">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className={[
-                  'block py-2 px-3 rounded-xl transition-all duration-200',
-                  isActive(item.href)
-                    ? 'bg-blue-600 text-white font-semibold'
-                    : 'text-slate-700 hover:text-blue-600 hover:bg-white/55 dark:text-slate-200 dark:hover:bg-white/10',
-                ].join(' ')}
-                aria-current={isActive(item.href) ? 'page' : undefined}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <Link
-              href="/admin"
-              onClick={() => setIsOpen(false)}
-              className="block py-2 px-4 bg-blue-600 text-white rounded-xl text-center mt-4"
-            >
-              Admin Login
+        <div className="hidden lg:flex items-center gap-2 xl:gap-3 rounded-full border border-black/5 bg-black/5 p-2 backdrop-blur-md">
+          {navItems.map((item) => (
+            <Link key={item.href} href={item.href} className={navLinkClass(item.href)}>
+              {item.label}
             </Link>
-          </div>
-        )}
+          ))}
+        </div>
+
+        <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden p-2.5 rounded-full border border-black/5 bg-black/5 text-slate-900">
+          {isOpen ? <MdClose size={24} /> : <MdMenu size={24} />}
+        </button>
       </div>
+
+      {isOpen && (
+        <div className="lg:hidden mt-3 rounded-[1.5rem] p-4 space-y-3 border border-black/5 bg-white/80 backdrop-blur-3xl animate-in fade-in zoom-in-95 shadow-2xl">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setIsOpen(false)}
+              className="block py-3 px-4 rounded-2xl transition-all text-sm font-bold tracking-widest text-slate-500 hover:text-black hover:bg-black/5 uppercase"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      )}
     </nav>
   );
 }

@@ -61,21 +61,22 @@ export default function ClientForm() {
           </div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-12 gap-6">
+        <div className="grid lg:grid-cols-12 gap-6 items-stretch">
           <motion.div
             className="lg:col-span-4"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <aside className="glass-panel h-full">
-              <h3 className="text-2xl font-bold">Why clients choose us</h3>
-              <ul className="mt-5 space-y-4 text-slate-600">
+            <aside className="card h-full">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">Why clients choose us</p>
+              <h3 className="text-2xl font-bold mt-3">A smoother path from idea to delivery.</h3>
+              <ul className="mt-5 space-y-4 text-slate-600 leading-relaxed">
                 <li>Clear communication and weekly project updates.</li>
                 <li>Modern architecture designed for scale and speed.</li>
                 <li>Security-first delivery with production-ready standards.</li>
               </ul>
-              <div className="mt-6 glass-chip rounded-xl p-4 border border-blue-100/70">
+              <div className="mt-6 glass-chip rounded-2xl p-4 border border-blue-100/70">
                 <p className="text-sm text-blue-700 font-semibold">Average first response: under 24 hours</p>
               </div>
             </aside>
@@ -87,7 +88,17 @@ export default function ClientForm() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <form onSubmit={handleSubmit} className="glass-panel space-y-5 h-full">
+            <form onSubmit={handleSubmit} className="card space-y-5 h-full">
+              <div className="flex items-center justify-between gap-4 flex-wrap">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">Project brief</p>
+                  <h3 className="text-2xl font-bold mt-2">Tell us what you want to build.</h3>
+                </div>
+                <span className="glass-chip px-3 py-1 rounded-full text-xs font-semibold text-slate-600">
+                  Fast response, clear estimate
+                </span>
+              </div>
+
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-semibold mb-2">Name</label>
@@ -97,7 +108,7 @@ export default function ClientForm() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border rounded-xl bg-white/70 border-white/70 focus:outline-none focus:ring-2 focus:ring-blue-600 backdrop-blur-md"
+                    className="w-full px-4 py-3 border rounded-xl bg-white border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all shadow-sm"
                     placeholder="Your name"
                   />
                 </div>
@@ -110,7 +121,7 @@ export default function ClientForm() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border rounded-xl bg-white/70 border-white/70 focus:outline-none focus:ring-2 focus:ring-blue-600 backdrop-blur-md"
+                    className="w-full px-4 py-3 border rounded-xl bg-white border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all shadow-sm"
                     placeholder="you@company.com"
                   />
                 </div>
@@ -123,7 +134,7 @@ export default function ClientForm() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border rounded-xl bg-white/70 border-white/70 focus:outline-none focus:ring-2 focus:ring-blue-600 backdrop-blur-md"
+                  className="w-full px-4 py-3 border rounded-xl bg-white border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all shadow-sm"
                   placeholder="Your phone number"
                 />
               </div>
@@ -136,7 +147,7 @@ export default function ClientForm() {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 border rounded-xl bg-white/70 border-white/70 focus:outline-none focus:ring-2 focus:ring-blue-600 resize-none backdrop-blur-md"
+                  className="w-full px-4 py-3 border rounded-xl bg-white border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all shadow-sm resize-none"
                   placeholder="Describe scope, timeline, and expected outcome..."
                 />
               </div>

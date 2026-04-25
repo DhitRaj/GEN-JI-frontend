@@ -1,10 +1,8 @@
 import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import './globals.css';
-import ShaderBackground from '@/components/ui/shader-background';
-import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
-
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
+import { DEFAULT_THEME_ID, THEME_STORAGE_KEY } from '@/lib/theme';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -24,12 +22,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cn("font-sans", inter.variable)}>
-      <body className="antialiased relative isolate overflow-x-hidden">
-        <ShaderBackground />
-        <div className="relative z-10">
-          {children}
-        </div>
+    <html lang="en" className={cn('font-sans')}>
+      <body className="antialiased relative isolate overflow-x-hidden bg-white text-slate-900">
+        <Script
+          id="theme-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function () {
+                try {
+                  var theme = 'light';
+                  var root = document.documentElement;
+                  root.setAttribute('data-theme', theme);
+                  root.classList.remove('dark');
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+        {children}
       </body>
     </html>
   );
