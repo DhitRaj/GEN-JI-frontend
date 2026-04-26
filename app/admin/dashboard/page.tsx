@@ -45,7 +45,8 @@ export default function Dashboard() {
   };
 
   const handleLogout = () => {
-    localStorage.clear();
+    localStorage.removeItem('adminToken');
+    localStorage.removeItem('admin');
     window.location.href = '/admin';
   };
 
@@ -66,9 +67,6 @@ export default function Dashboard() {
           </a>
           <a href="/admin/clients" style={{ display: 'block', padding: '12px 16px', marginBottom: '4px', color: '#64748b', borderRadius: '6px', textDecoration: 'none', fontSize: '14px', fontWeight: '500' }}>
             Clients
-          </a>
-          <a href="/admin/content" style={{ display: 'block', padding: '12px 16px', marginBottom: '4px', color: '#64748b', borderRadius: '6px', textDecoration: 'none', fontSize: '14px', fontWeight: '500' }}>
-            Content
           </a>
         </nav>
 

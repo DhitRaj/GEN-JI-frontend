@@ -329,7 +329,7 @@ export const DesignForm = ({
 
       {/* Info Text */}
       <p className="text-xs text-slate-600 dark:text-slate-400 text-center">
-        We'll review your request and get back to you within 24 hours.
+        We&apos;ll review your request and get back to you within 24 hours.
       </p>
     </form>
   );

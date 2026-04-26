@@ -62,10 +62,10 @@ function FloatingCard({ position, scale, color, speed, index, scroll }: any) {
 
   const geometry = useMemo(() => {
     const shapes = [
-      <planeGeometry args={[2.5, 1.5]} />,
-      <boxGeometry args={[1, 1, 0.1]} />,
-      <octahedronGeometry args={[0.7, 0]} />,
-      <torusGeometry args={[0.5, 0.15, 16, 32]} />,
+      <planeGeometry key="plane" args={[2.5, 1.5]} />,
+      <boxGeometry key="box" args={[1, 1, 0.1]} />,
+      <octahedronGeometry key="octa" args={[0.7, 0]} />,
+      <torusGeometry key="torus" args={[0.5, 0.15, 16, 32]} />,
     ];
     return shapes[index % shapes.length];
   }, [index]);
