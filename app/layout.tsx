@@ -1,7 +1,9 @@
 import type { Metadata, Viewport } from 'next';
-import Script from 'next/script';
 import './globals.css';
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
+
+const siteUrl = 'https://gen-ji.me';
+const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -11,30 +13,28 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://gen-ji.me'),
+  metadataBase: new URL(siteUrl),
+  applicationName: 'Gen-Ji Digital Studio',
   title: {
-    default: 'Best Web Development Company in India | Gen-Ji Digital Studio',
+    default: 'Gen-Ji (Gen Ji) Web Development Company in India',
     template: '%s | Gen-Ji Digital Studio',
   },
-  description: 'Gen-Ji is a top-rated web development company in India specializing in custom software, mobile apps, and scalable backend systems. 50+ projects delivered. Get a free consultation today.',
+  description:
+    'Gen-Ji (also searched as Gen Ji or Genji) is a web development company in India building custom software, mobile apps, and scalable backend systems.',
   keywords: [
+    'gen-ji',
+    'gen ji',
+    'genji',
+    'gen ji digital studio',
     'web development company India',
     'custom software development services',
     'hire web developers India',
-    'web development team India',
-    'affordable web development India',
-    'mobile app development company',
+    'mobile app development company India',
     'full stack development India',
-    'startup web development',
-    'digital solutions India',
-    'web application development',
-    'backend development services',
     'React Next.js development',
     'Node.js development company',
-    'UI/UX design services India',
-    'cloud solutions India',
   ],
-  authors: [{ name: 'Gen-Ji Team', url: 'https://gen-ji.me' }],
+  authors: [{ name: 'Gen-Ji Team', url: siteUrl }],
   creator: 'Gen-Ji Digital Studio',
   publisher: 'Gen-Ji Digital Studio',
   formatDetection: {
@@ -57,33 +57,33 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://gen-ji.me',
+    url: siteUrl,
     siteName: 'Gen-Ji Digital Studio',
-    title: 'Best Web Development Company in India | Gen-Ji Digital Studio',
-    description: 'Top-rated web development company in India. Custom software, mobile apps, scalable backends. 50+ projects, 98% client satisfaction. Free consultation available.',
+    title: 'Gen-Ji (Gen Ji) Web Development Company in India',
+    description:
+      'Top web development team in India for custom software, mobile apps, and backend systems.',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Gen-Ji Digital Studio - Best Web Development Company in India',
+        alt: 'Gen-Ji Digital Studio',
         type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Web Development Company in India | Gen-Ji Digital Studio',
-    description: 'Top-rated web development company in India. Custom software, mobile apps, scalable backends. 50+ projects delivered.',
+    title: 'Gen-Ji (Gen Ji) Web Development Company in India',
+    description:
+      'Build web apps, mobile apps, and scalable software with Gen-Ji Digital Studio.',
     images: ['/og-image.png'],
     creator: '@genji_studio',
   },
   alternates: {
-    canonical: 'https://gen-ji.me',
+    canonical: siteUrl,
   },
-  verification: {
-    google: 'your-google-verification-code',
-  },
+  verification: googleSiteVerification ? { google: googleSiteVerification } : undefined,
   category: 'technology',
 };
 
@@ -95,10 +95,13 @@ export default function RootLayout({
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': `${siteUrl}/#organization`,
     name: 'Gen-Ji Digital Studio',
-    url: 'https://gen-ji.me',
-    logo: 'https://gen-ji.me/logo.png',
-    description: 'Top-rated web development company in India specializing in custom software, mobile apps, and scalable backend systems.',
+    alternateName: ['Gen Ji', 'Genji', 'GEN JI'],
+    url: siteUrl,
+    logo: `${siteUrl}/logo.png`,
+    description:
+      'Web development company in India specializing in custom software, mobile apps, and scalable backend systems.',
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'IN',
@@ -111,19 +114,16 @@ export default function RootLayout({
     ],
     contactPoint: {
       '@type': 'ContactPoint',
-      contactType: 'Customer Service',
-      url: 'https://gen-ji.me/contact',
+      contactType: 'Customer Support',
+      url: `${siteUrl}/contact`,
       availableLanguage: ['English', 'Hindi'],
     },
-    foundingDate: '2024',
-    numberOfEmployees: '10-50',
     areaServed: 'IN',
     serviceType: [
       'Web Development',
       'Mobile App Development',
       'Custom Software Development',
       'UI/UX Design',
-      'Cloud Solutions',
       'Backend Development',
     ],
   };
@@ -131,20 +131,17 @@ export default function RootLayout({
   const localBusinessSchema = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': 'https://gen-ji.me',
+    '@id': `${siteUrl}/#localbusiness`,
     name: 'Gen-Ji Digital Studio',
-    description: 'Best web development company in India offering custom software, mobile apps, and digital solutions.',
-    url: 'https://gen-ji.me',
-    telephone: '+91-XXXXXXXXXX',
-    priceRange: '₹₹₹',
+    alternateName: ['Gen Ji', 'Genji'],
+    description:
+      'Web development and custom software studio serving startups and businesses in India.',
+    url: siteUrl,
+    image: `${siteUrl}/og-image.png`,
+    priceRange: '$$',
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'IN',
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: '20.5937',
-      longitude: '78.9629',
     },
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
@@ -152,24 +149,16 @@ export default function RootLayout({
       opens: '09:00',
       closes: '18:00',
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '47',
-      bestRating: '5',
-    },
   };
 
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': `${siteUrl}/#website`,
     name: 'Gen-Ji Digital Studio',
-    url: 'https://gen-ji.me',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: 'https://gen-ji.me/search?q={search_term_string}',
-      'query-input': 'required name=search_term_string',
-    },
+    alternateName: ['Gen Ji', 'Genji'],
+    url: siteUrl,
+    inLanguage: 'en-IN',
   };
 
   return (

@@ -1,9 +1,19 @@
 import { type NextRequest, NextResponse } from "next/server";
 
 export async function middleware(request: NextRequest) {
-  // For now, just pass through all requests
-  // Supabase authentication can be added later when needed
-  return NextResponse.next();
+  const response = NextResponse.next();
+  const pathname = request.nextUrl.pathname;
+
+  const noIndexPrefixes = ['/admin', '/api', '/preview', '/select', '/theme-studio'];
+  const shouldNoIndex = noIndexPrefixes.some(
+    (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`)
+  );
+
+  if (shouldNoIndex) {
+    response.headers.set('X-Robots-Tag', 'noindex, nofollow, noarchive');
+  }
+
+  return response;
 }
 
 export const config = {
