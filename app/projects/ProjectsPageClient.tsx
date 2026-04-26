@@ -2,11 +2,22 @@
 
 import { Canvas } from "@react-three/fiber";
 import { ScrollControls, Scroll, Environment } from "@react-three/drei";
-import { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import axios from "axios";
 import ProjectsScene from '../../components/three/ProjectsScene';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+
+type Project = {
+  _id: string;
+  title: string;
+  description: string;
+  techStack: string[];
+  image?: string;
+  liveUrl?: string;
+  featured?: boolean;
+};
 
 const insights = [
   { title: 'Faster Delivery', value: '40%', desc: 'Reusable patterns and a cleaner workflow reduce build time.' },
@@ -29,6 +40,23 @@ const GlassCard = ({ children, className = "" }: { children: React.ReactNode, cl
 );
 
 export default function ProjectsPageClient() {
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/projects`);
+        setProjects(response.data.projects || []);
+      } catch (error) {
+        console.error('Failed to fetch projects:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, []);
   return (
     <div className="h-screen w-full overflow-hidden fixed inset-0 z-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* FLOATING NAVBAR - FIXED ON TOP */}
@@ -145,45 +173,95 @@ export default function ProjectsPageClient() {
 
                 {/* PROJECT GRID (Simplified for 3D Flow) */}
                 <div className="min-h-screen w-full grid grid-cols-1 md:grid-cols-2 gap-8 p-10 max-w-7xl mx-auto items-center flex-shrink-0">
-                  {[1, 2, 3, 4].map((i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: i * 0.1 }}
-                    >
-                      <GlassCard className="h-full flex flex-col justify-center border-white/10 hover:border-purple-500/50 transition-colors group">
-                        <motion.div 
-                          initial={{ opacity: 0 }}
-                          whileInView={{ opacity: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.5, delay: i * 0.1 + 0.2 }}
-                          className="text-xs text-purple-400 font-bold tracking-[0.3em] uppercase mb-4"
-                        >
-                          Case Study 0{i}
-                        </motion.div>
-                        <motion.h2 
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.6, delay: i * 0.1 + 0.3 }}
-                          className="text-4xl font-black text-white mb-4 uppercase italic group-hover:text-purple-300 transition-colors"
-                        >
-                          Advanced Platform
-                        </motion.h2>
-                        <motion.p 
-                          initial={{ opacity: 0 }}
-                          whileInView={{ opacity: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.6, delay: i * 0.1 + 0.4 }}
-                          className="text-slate-300 text-lg"
-                        >
-                          Next-generation digital infrastructure for enterprise scale.
-                        </motion.p>
-                      </GlassCard>
-                    </motion.div>
-                  ))}
+                  {loading ? (
+                    <div className="col-span-full text-center text-slate-300">Loading projects...</div>
+                  ) : projects.length === 0 ? (
+                    <div className="col-span-full text-center text-slate-300">No projects available yet</div>
+                  ) : (
+                    projects.map((project, i) => (
+                      <motion.div
+                        key={project._id}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: i * 0.1 }}
+                      >
+                        <GlassCard className="h-full flex flex-col justify-between border-white/10 hover:border-purple-500/50 transition-colors group">
+                          {project.image && (
+                            <motion.div 
+                              initial={{ opacity: 0 }}
+                              whileInView={{ opacity: 1 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.5, delay: i * 0.1 + 0.1 }}
+                              className="mb-4 rounded-lg overflow-hidden h-40 bg-slate-700"
+                            >
+                              <img 
+                                src={project.image} 
+                                alt={project.title}
+                                className="w-full h-full object-cover"
+                              />
+                            </motion.div>
+                          )}
+                          <motion.div 
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: i * 0.1 + 0.2 }}
+                            className="text-xs text-purple-400 font-bold tracking-[0.3em] uppercase mb-4"
+                          >
+                            {project.featured && '⭐ FEATURED'}
+                          </motion.div>
+                          <motion.h2 
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: i * 0.1 + 0.3 }}
+                            className="text-3xl font-black text-white mb-3 uppercase italic group-hover:text-purple-300 transition-colors"
+                          >
+                            {project.title}
+                          </motion.h2>
+                          <motion.p 
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: i * 0.1 + 0.4 }}
+                            className="text-slate-300 text-sm mb-4 line-clamp-3"
+                          >
+                            {project.description}
+                          </motion.p>
+                          {project.techStack.length > 0 && (
+                            <motion.div 
+                              initial={{ opacity: 0 }}
+                              whileInView={{ opacity: 1 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.6, delay: i * 0.1 + 0.5 }}
+                              className="flex flex-wrap gap-2 mb-4"
+                            >
+                              {project.techStack.slice(0, 3).map((tech, idx) => (
+                                <span key={idx} className="px-2 py-1 rounded-full bg-purple-600/20 text-purple-300 text-xs">
+                                  {tech}
+                                </span>
+                              ))}
+                            </motion.div>
+                          )}
+                          {project.liveUrl && (
+                            <motion.a
+                              initial={{ opacity: 0 }}
+                              whileInView={{ opacity: 1 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.6, delay: i * 0.1 + 0.6 }}
+                              href={project.liveUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-cyan-400 hover:text-cyan-300 font-semibold text-sm"
+                            >
+                              View Live →
+                            </motion.a>
+                          )}
+                        </GlassCard>
+                      </motion.div>
+                    ))
+                  )}
                 </div>
 
                 {/* OUTCOMES */}

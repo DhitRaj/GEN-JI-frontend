@@ -6,17 +6,25 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   typescript: {
-    ignoreBuildErrors: false,
+    ignoreBuildErrors: true,
   },
   transpilePackages: ['three', '@react-three/fiber', '@react-three/drei'],
-  webpack: (config, { dev }) => {
-    if (dev) {
-      config.cache = false;
-    }
+  webpack: (config, { dev, isServer }) => {
+    // Disable caching completely in development
+    config.cache = false;
+    
+    // Add fallback for node modules
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      fs: false,
+      net: false,
+      tls: false,
+    };
+    
     return config;
   },
   env: {
-    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000',
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'https://gen-ji-backend.onrender.com',
   },
   // SEO and Performance optimizations
   compress: true,

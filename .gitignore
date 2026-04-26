@@ -8,6 +8,7 @@ node_modules/
 .env.local
 .env.*.local
 .env.production
+.env.development
 
 # Build & Dist
 dist/
@@ -44,3 +45,10 @@ coverage/
 # Misc
 .cache/
 .turbo/
+
+# Kiro AI files
+.kiro/
+
+# SEO & internal docs
+SEO_CHECKLIST.md
+*.checklist.md
