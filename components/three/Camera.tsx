@@ -17,8 +17,9 @@ export default function CameraRig() {
     // Dynamic FOV for a "warp" effect as you scroll faster
     // Standard FOV is 35, increases to 60 at the end
     const targetFOV = 35 + (offset * 25);
-    state.camera.fov = THREE.MathUtils.lerp(state.camera.fov, targetFOV, 0.1);
-    state.camera.updateProjectionMatrix();
+    const perspCamera = state.camera as THREE.PerspectiveCamera;
+    perspCamera.fov = THREE.MathUtils.lerp(perspCamera.fov, targetFOV, 0.1);
+    perspCamera.updateProjectionMatrix();
 
     // Smooth lerping for cinematic feel
     state.camera.position.z = THREE.MathUtils.lerp(

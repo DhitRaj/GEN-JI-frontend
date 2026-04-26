@@ -16,14 +16,13 @@ const Scene = dynamic(() => import("./three/Scene"), {
 export default function SpidermanHero({ children }: { children: React.ReactNode }) {
   return (
     <div className="relative w-full min-h-screen bg-black">
-      <Scene>
-        <div className="relative">
-          <HeroOverlay />
-          <div className="mt-[100vh]">
-             {children}
-          </div>
+      <Scene />
+      <div className="relative">
+        <HeroOverlay />
+        <div className="mt-[100vh]">
+           {children}
         </div>
-      </Scene>
+      </div>
     </div>
   );
 }

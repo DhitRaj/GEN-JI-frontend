@@ -1,44 +1,31 @@
-'use client';
+import { Metadata } from 'next';
+import ContactPageClient from './ContactPageClient';
 
-import PageScene from '../../components/three/PageScene';
-import ClientForm from '../../components/sections/ClientForm';
-import Footer from '../../components/Footer';
-
-const GlassCard = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => (
-  <div className={`p-10 rounded-[3rem] border border-black/5 bg-white/60 backdrop-blur-[60px] shadow-xl ${className}`}>
-    {children}
-  </div>
-);
+export const metadata: Metadata = {
+  title: 'Hire Web Developers India | Get Free Quote | Gen-Ji Digital Studio',
+  description: 'Hire expert web developers in India for your next project. Share your requirements and get a detailed plan, timeline, and estimate within 24 hours. No commitment required.',
+  keywords: [
+    'hire web developers India',
+    'web developer hiring India',
+    'outsource web development India',
+    'web development quotes India',
+    'get web development estimate',
+    'contact web development company',
+    'hire software developers India',
+    'web development consultation',
+    'free web development quote',
+    'web project inquiry India',
+  ],
+  openGraph: {
+    title: 'Hire Web Developers India | Free Quote | Gen-Ji',
+    description: 'Hire expert web developers in India. Get a detailed plan, timeline, and estimate within 24 hours. No commitment required.',
+    url: 'https://gen-ji.me/contact',
+    type: 'website',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Hire Web Developers India - Gen-Ji' }],
+  },
+  alternates: { canonical: 'https://gen-ji.me/contact' },
+};
 
 export default function ContactPage() {
-  return (
-    <PageScene title="Contact" pages={4}>
-      <div className="flex flex-col items-center">
-        {/* HERO SPACER */}
-        <div className="h-screen w-full" />
-
-        {/* CONTACT HERO */}
-        <div className="min-h-screen w-full flex items-center justify-center p-6">
-          <GlassCard className="max-w-5xl text-center">
-            <h1 className="text-5xl md:text-9xl font-black mb-6 uppercase tracking-tighter leading-none bg-clip-text text-transparent bg-gradient-to-br from-slate-900 via-slate-700 to-slate-500">
-              LET'S <span className="italic">SYNC</span>
-            </h1>
-            <p className="text-2xl text-slate-600 font-light leading-relaxed max-w-3xl mx-auto">
-              Share your requirement and get a practical execution plan from our team. We respond within 24 hours.
-            </p>
-          </GlassCard>
-        </div>
-
-        {/* THE FORM SECTION */}
-        <div className="min-h-screen w-full flex items-center justify-center p-6 md:p-12">
-          <div className="w-full max-w-6xl">
-             <ClientForm />
-          </div>
-        </div>
-
-        {/* FOOTER */}
-        <Footer />
-      </div>
-    </PageScene>
-  );
+  return <ContactPageClient />;
 }
