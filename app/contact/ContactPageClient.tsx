@@ -80,7 +80,7 @@ export default function ContactPageClient() {
                         transition={{ duration: 0.8, delay: 0.7 }}
                         className="text-xl md:text-2xl text-slate-300 mb-12 max-w-4xl mx-auto leading-relaxed"
                       >
-                        Ready to bring your vision to life? Let's discuss your project requirements and create something extraordinary together.
+                        Ready to bring your vision to life? Let&apos;s discuss your project requirements and create something extraordinary together.
                       </motion.p>
 
                       <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -110,7 +110,7 @@ export default function ContactPageClient() {
                 <div className="min-h-screen w-full flex items-center justify-center p-6 flex-shrink-0">
                   <GlassCard className="max-w-5xl text-center">
                     <h1 className="text-5xl md:text-9xl font-black mb-6 uppercase tracking-tighter leading-none bg-clip-text text-transparent bg-gradient-to-br from-white via-cyan-200 to-purple-200">
-                      LET'S <span className="italic">SYNC</span>
+                      LET&apos;S <span className="italic">SYNC</span>
                     </h1>
                     <p className="text-2xl text-slate-300 font-light leading-relaxed max-w-3xl mx-auto">
                       Share your requirement and get a practical execution plan from our team. We respond within 24 hours.

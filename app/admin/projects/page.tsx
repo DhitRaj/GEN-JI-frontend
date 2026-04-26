@@ -160,7 +160,8 @@ export default function ProjectsPage() {
   };
 
   const handleLogout = () => {
-    localStorage.clear();
+    localStorage.removeItem('adminToken');
+    localStorage.removeItem('admin');
     window.location.href = '/admin';
   };
 
@@ -337,7 +338,7 @@ export default function ProjectsPage() {
             <div style={{ textAlign: 'center', padding: '60px', background: '#f8fafc', borderRadius: '8px', border: '2px dashed #e2e8f0' }}>
               <div style={{ fontSize: '48px', marginBottom: '16px' }}>📁</div>
               <p style={{ margin: '0 0 8px 0', fontSize: '16px', fontWeight: '600', color: '#0f172a' }}>No projects yet</p>
-              <p style={{ margin: 0, fontSize: '14px', color: '#64748b' }}>Click "Add Project" to create your first project</p>
+              <p style={{ margin: 0, fontSize: '14px', color: '#64748b' }}>Click &quot;Add Project&quot; to create your first project</p>
             </div>
           ) : (
             projects.map((project) => (

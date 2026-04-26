@@ -182,7 +182,7 @@ export default function ModernOverlay() {
               Ready to Build Something Amazing?
             </h2>
             <p className="text-xl text-slate-300 mb-12 max-w-2xl mx-auto">
-              Let's transform your vision into reality. Get in touch with our team today.
+              Let&apos;s transform your vision into reality. Get in touch with our team today.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="/contact">

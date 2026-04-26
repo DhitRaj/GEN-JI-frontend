@@ -2,12 +2,6 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
   transpilePackages: ['three', '@react-three/fiber', '@react-three/drei'],
   webpack: (config, { dev, isServer }) => {
     // Disable caching completely in development

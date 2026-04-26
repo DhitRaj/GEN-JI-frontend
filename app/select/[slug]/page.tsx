@@ -54,7 +54,7 @@ export default function SelectPage({ params }: SelectPageProps) {
                     Request {design.title}
                   </h1>
                   <p className="text-slate-600 dark:text-slate-400">
-                    Fill out the form below and we'll get in touch with you shortly.
+                    Fill out the form below and we&apos;ll get in touch with you shortly.
                   </p>
                 </div>
                 <span className="px-3 py-1 rounded-full text-sm font-semibold bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200 whitespace-nowrap">
@@ -73,7 +73,7 @@ export default function SelectPage({ params }: SelectPageProps) {
                   Request Submitted Successfully!
                 </h2>
                 <p className="text-green-700 dark:text-green-400">
-                  We've received your request. You'll be redirected shortly...
+                  We&apos;ve received your request. You&apos;ll be redirected shortly...
                 </p>
               </div>
             </div>
@@ -112,7 +112,7 @@ export default function SelectPage({ params }: SelectPageProps) {
               <div className="text-3xl mb-3">🚀</div>
               <h3 className="font-bold text-slate-900 dark:text-white mb-2">Ready to Start</h3>
               <p className="text-sm text-slate-600 dark:text-slate-400">
-                We'll work with you to customize and implement your chosen design.
+                We&apos;ll work with you to customize and implement your chosen design.
               </p>
             </div>
           </div>
