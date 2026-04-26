@@ -1,23 +1,13 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 export default function Dashboard() {
   const [stats, setStats] = useState({ clients: 0, projects: 0, requests: 0 });
   const [loading, setLoading] = useState(true);
   const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://gen-ji-backend.onrender.com';
 
-  useEffect(() => {
-    const token = localStorage.getItem('adminToken');
-    if (!token) {
-      window.location.href = '/admin';
-      return;
-    }
-
-    fetchStats();
-  }, []);
-
-  const fetchStats = async () => {
+  const fetchStats = useCallback(async () => {
     try {
       const token = localStorage.getItem('adminToken');
       const [clientsRes, projectsRes] = await Promise.all([
@@ -42,7 +32,17 @@ export default function Dashboard() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [API_URL]);
+
+  useEffect(() => {
+    const token = localStorage.getItem('adminToken');
+    if (!token) {
+      window.location.href = '/admin';
+      return;
+    }
+
+    fetchStats();
+  }, [fetchStats]);
 
   const handleLogout = () => {
     localStorage.removeItem('adminToken');

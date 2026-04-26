@@ -11,11 +11,11 @@ export const metadata = {
   openGraph: {
     title: 'Design Templates - Gen-Ji Digital Studio',
     description: 'Browse our collection of professional design templates.',
-    url: 'https://gen-ji.me/designs',
+    url: 'https://www.gen-ji.me/designs',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://gen-ji.me/designs',
+    canonical: 'https://www.gen-ji.me/designs',
   },
 };
 
@@ -90,3 +90,4 @@ export default function DesignsPage() {
     </main>
   );
 }
+

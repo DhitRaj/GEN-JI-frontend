@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { blogPosts } from '../lib/blogPosts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://gen-ji.me';
+  const baseUrl = 'https://www.gen-ji.me';
   const now = new Date();
 
   const staticRoutes = [
@@ -31,3 +31,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 }
+

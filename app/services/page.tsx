@@ -21,13 +21,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Custom Software Development Services India | Gen-Ji',
     description: 'Expert custom software development — web apps, mobile apps, backend systems. Trusted by 30+ startups. Free consultation available.',
-    url: 'https://gen-ji.me/services',
+    url: 'https://www.gen-ji.me/services',
     type: 'website',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Custom Software Development Services India' }],
   },
-  alternates: { canonical: 'https://gen-ji.me/services' },
+  alternates: { canonical: 'https://www.gen-ji.me/services' },
 };
 
 export default function ServicesPage() {
   return <ServicesPageClient />;
 }
+

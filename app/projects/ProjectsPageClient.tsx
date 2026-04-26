@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { Canvas } from "@react-three/fiber";
 import { ScrollControls, Scroll, Environment } from "@react-three/drei";
 import { Suspense, useEffect, useState } from "react";
@@ -195,10 +196,13 @@ export default function ProjectsPageClient() {
                               transition={{ duration: 0.5, delay: i * 0.1 + 0.1 }}
                               className="mb-4 rounded-lg overflow-hidden h-40 bg-slate-700"
                             >
-                              <img 
-                                src={project.image} 
+                              <Image
+                                src={project.image}
                                 alt={project.title}
-                                className="w-full h-full object-cover"
+                                fill
+                                unoptimized
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                                className="object-cover"
                               />
                             </motion.div>
                           )}

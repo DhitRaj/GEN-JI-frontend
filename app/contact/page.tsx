@@ -24,13 +24,14 @@ export const metadata: Metadata = {
     title: 'Gen-Ji Customer Support & Project Enquiry',
     description:
       'Talk to Gen-Ji for customer support and project consultation. Get a response within 24 hours.',
-    url: 'https://gen-ji.me/contact',
+    url: 'https://www.gen-ji.me/contact',
     type: 'website',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Hire Web Developers India - Gen-Ji' }],
   },
-  alternates: { canonical: 'https://gen-ji.me/contact' },
+  alternates: { canonical: 'https://www.gen-ji.me/contact' },
 };
 
 export default function ContactPage() {
   return <ContactPageClient />;
 }
+

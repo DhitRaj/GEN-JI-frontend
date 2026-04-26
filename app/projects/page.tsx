@@ -19,13 +19,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Web Development Portfolio India | 50+ Projects | Gen-Ji',
     description: 'Explore 50+ successful web development projects. Real-world examples of web apps, mobile apps, and custom software for startups and enterprises.',
-    url: 'https://gen-ji.me/projects',
+    url: 'https://www.gen-ji.me/projects',
     type: 'website',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Web Development Portfolio India - Gen-Ji' }],
   },
-  alternates: { canonical: 'https://gen-ji.me/projects' },
+  alternates: { canonical: 'https://www.gen-ji.me/projects' },
 };
 
 export default function ProjectsPage() {
   return <ProjectsPageClient />;
 }
+

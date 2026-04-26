@@ -19,13 +19,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Web Development Blog India | Expert Guides | Gen-Ji',
     description: 'Expert web development guides, tutorials, and industry insights. Learn React, Node.js, performance optimization, and more.',
-    url: 'https://gen-ji.me/blog',
+    url: 'https://www.gen-ji.me/blog',
     type: 'website',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Gen-Ji Web Development Blog' }],
   },
-  alternates: { canonical: 'https://gen-ji.me/blog' },
+  alternates: { canonical: 'https://www.gen-ji.me/blog' },
 };
 
 export default function BlogPage() {
   return <BlogPageClient />;
 }
+

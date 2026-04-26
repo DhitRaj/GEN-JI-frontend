@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import { useCallback, useEffect, useState } from 'react';
 
 type Project = {
   _id: string;
@@ -29,16 +30,7 @@ export default function ProjectsPage() {
 
   const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://gen-ji-backend.onrender.com';
 
-  useEffect(() => {
-    const token = localStorage.getItem('adminToken');
-    if (!token) {
-      window.location.href = '/admin';
-      return;
-    }
-    fetchProjects();
-  }, []);
-
-  const fetchProjects = async () => {
+  const fetchProjects = useCallback(async () => {
     try {
       const token = localStorage.getItem('adminToken');
       const response = await fetch(`${API_URL}/api/projects`, {
@@ -51,7 +43,16 @@ export default function ProjectsPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [API_URL]);
+
+  useEffect(() => {
+    const token = localStorage.getItem('adminToken');
+    if (!token) {
+      window.location.href = '/admin';
+      return;
+    }
+    fetchProjects();
+  }, [fetchProjects]);
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -267,7 +268,7 @@ export default function ProjectsPage() {
                   </div>
                   {formData.image && (
                     <div style={{ marginTop: '12px' }}>
-                      <img src={formData.image} alt="Preview" style={{ width: '100%', maxHeight: '200px', objectFit: 'cover', borderRadius: '6px', border: '2px solid #e2e8f0' }} />
+                      <Image src={formData.image} alt="Preview" width={1200} height={200} unoptimized style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '6px', border: '2px solid #e2e8f0' }} />
                       <button
                         type="button"
                         onClick={() => setFormData({ ...formData, image: '' })}
@@ -345,7 +346,7 @@ export default function ProjectsPage() {
               <div key={project._id} style={{ background: 'white', padding: '24px', borderRadius: '8px', border: '2px solid #e2e8f0' }}>
                 <div style={{ display: 'flex', gap: '20px' }}>
                   {project.image && (
-                    <img src={project.image} alt={project.title} style={{ width: '160px', height: '120px', objectFit: 'cover', borderRadius: '8px', border: '2px solid #e2e8f0' }} />
+                    <Image src={project.image} alt={project.title} width={160} height={120} unoptimized style={{ width: '160px', height: '120px', objectFit: 'cover', borderRadius: '8px', border: '2px solid #e2e8f0' }} />
                   )}
                   <div style={{ flex: 1 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
