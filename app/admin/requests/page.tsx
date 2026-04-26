@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
-import PageHero from '../../components/PageHero';
+import Navbar from '../../../components/Navbar';
+import Footer from '../../../components/Footer';
+import PageHero from '../../../components/PageHero';
 
 interface DesignRequest {
   id: string;

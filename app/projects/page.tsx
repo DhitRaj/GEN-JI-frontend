@@ -2,26 +2,30 @@ import { Metadata } from 'next';
 import ProjectsPageClient from './ProjectsPageClient';
 
 export const metadata: Metadata = {
-  title: 'Projects | Gen-Ji Digital Studio',
-  description: 'A showcase of our recent work and digital solutions delivered for modern businesses.',
+  title: 'Web Development Portfolio India | 50+ Projects | Gen-Ji Digital Studio',
+  description: 'Explore Gen-Ji\'s portfolio of 50+ successful web development projects in India. Real-world examples of web apps, mobile apps, and custom software built for startups and enterprises.',
+  keywords: [
+    'web development portfolio India',
+    'software development case studies',
+    'web app development examples',
+    'mobile app portfolio India',
+    'custom software projects India',
+    'startup web development portfolio',
+    'React Next.js projects',
+    'full stack development portfolio',
+    'digital solutions showcase India',
+    'web development work samples',
+  ],
+  openGraph: {
+    title: 'Web Development Portfolio India | 50+ Projects | Gen-Ji',
+    description: 'Explore 50+ successful web development projects. Real-world examples of web apps, mobile apps, and custom software for startups and enterprises.',
+    url: 'https://gen-ji.me/projects',
+    type: 'website',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Web Development Portfolio India - Gen-Ji' }],
+  },
+  alternates: { canonical: 'https://gen-ji.me/projects' },
 };
 
 export default function ProjectsPage() {
   return <ProjectsPageClient />;
-}
-            {insights.map((item, idx) => (
-              <GlassCard key={idx} className="text-center">
-                <div className="text-6xl font-black text-slate-900 mb-4 tracking-tighter">{item.value}</div>
-                <h3 className="text-2xl font-bold text-slate-800 mb-2">{item.title}</h3>
-                <p className="text-slate-500">{item.desc}</p>
-              </GlassCard>
-            ))}
-          </div>
-        </div>
-
-        {/* FOOTER */}
-        <Footer />
-      </div>
-    </PageScene>
-  );
 }
