@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-  const siteUrl = 'https://gen-ji.me';
+  const siteUrl = 'https://www.gen-ji.me';
 
   return {
     rules: [
@@ -15,3 +15,4 @@ export default function robots(): MetadataRoute.Robots {
     host: siteUrl,
   };
 }
+

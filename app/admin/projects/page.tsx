@@ -1,6 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import { useCallback, useEffect, useState } from 'react';
+import AdminLayout from '../../../components/admin/AdminLayout';
 
 type Project = {
   _id: string;
@@ -29,16 +31,7 @@ export default function ProjectsPage() {
 
   const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://gen-ji-backend.onrender.com';
 
-  useEffect(() => {
-    const token = localStorage.getItem('adminToken');
-    if (!token) {
-      window.location.href = '/admin';
-      return;
-    }
-    fetchProjects();
-  }, []);
-
-  const fetchProjects = async () => {
+  const fetchProjects = useCallback(async () => {
     try {
       const token = localStorage.getItem('adminToken');
       const response = await fetch(`${API_URL}/api/projects`, {
@@ -51,7 +44,16 @@ export default function ProjectsPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [API_URL]);
+
+  useEffect(() => {
+    const token = localStorage.getItem('adminToken');
+    if (!token) {
+      window.location.href = '/admin';
+      return;
+    }
+    fetchProjects();
+  }, [fetchProjects]);
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -159,39 +161,9 @@ export default function ProjectsPage() {
     setShowForm(false);
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem('adminToken');
-    localStorage.removeItem('admin');
-    window.location.href = '/admin';
-  };
-
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', background: '#ffffff', fontFamily: 'system-ui, sans-serif' }}>
-      {/* Sidebar */}
-      <div style={{ width: '250px', background: '#f8fafc', borderRight: '1px solid #e2e8f0', padding: '20px' }}>
-        <h2 style={{ margin: '0 0 30px 0', fontSize: '20px', fontWeight: '700', color: '#0f172a' }}>
-          Gen-Ji Admin
-        </h2>
-        
-        <nav>
-          <a href="/admin/dashboard" style={{ display: 'block', padding: '12px 16px', marginBottom: '4px', color: '#64748b', borderRadius: '6px', textDecoration: 'none', fontSize: '14px', fontWeight: '500' }}>
-            Dashboard
-          </a>
-          <a href="/admin/projects" style={{ display: 'block', padding: '12px 16px', marginBottom: '4px', background: '#3b82f6', color: 'white', borderRadius: '6px', textDecoration: 'none', fontSize: '14px', fontWeight: '500' }}>
-            Projects
-          </a>
-          <a href="/admin/clients" style={{ display: 'block', padding: '12px 16px', marginBottom: '4px', color: '#64748b', borderRadius: '6px', textDecoration: 'none', fontSize: '14px', fontWeight: '500' }}>
-            Clients
-          </a>
-        </nav>
-
-        <button onClick={handleLogout} style={{ width: '100%', marginTop: '30px', padding: '12px', background: 'white', color: '#dc2626', border: '1px solid #fecaca', borderRadius: '6px', fontSize: '14px', fontWeight: '600', cursor: 'pointer' }}>
-          Logout
-        </button>
-      </div>
-
-      {/* Main Content */}
-      <div style={{ flex: 1, padding: '30px', background: '#ffffff' }}>
+    <AdminLayout>
+      <div>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
           <h1 style={{ margin: 0, fontSize: '28px', fontWeight: '700', color: '#0f172a' }}>Projects</h1>
           <button
@@ -267,7 +239,7 @@ export default function ProjectsPage() {
                   </div>
                   {formData.image && (
                     <div style={{ marginTop: '12px' }}>
-                      <img src={formData.image} alt="Preview" style={{ width: '100%', maxHeight: '200px', objectFit: 'cover', borderRadius: '6px', border: '2px solid #e2e8f0' }} />
+                      <Image src={formData.image} alt="Preview" width={1200} height={200} unoptimized style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '6px', border: '2px solid #e2e8f0' }} />
                       <button
                         type="button"
                         onClick={() => setFormData({ ...formData, image: '' })}
@@ -345,7 +317,7 @@ export default function ProjectsPage() {
               <div key={project._id} style={{ background: 'white', padding: '24px', borderRadius: '8px', border: '2px solid #e2e8f0' }}>
                 <div style={{ display: 'flex', gap: '20px' }}>
                   {project.image && (
-                    <img src={project.image} alt={project.title} style={{ width: '160px', height: '120px', objectFit: 'cover', borderRadius: '8px', border: '2px solid #e2e8f0' }} />
+                    <Image src={project.image} alt={project.title} width={160} height={120} unoptimized style={{ width: '160px', height: '120px', objectFit: 'cover', borderRadius: '8px', border: '2px solid #e2e8f0' }} />
                   )}
                   <div style={{ flex: 1 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
@@ -384,6 +356,6 @@ export default function ProjectsPage() {
           )}
         </div>
       </div>
-    </div>
+    </AdminLayout>
   );
 }

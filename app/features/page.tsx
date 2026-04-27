@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { PremiumLayout } from '@/components/common/PremiumBackground';
 import FeaturesPageClient from './FeaturesPageClient';
 
 export const metadata: Metadata = {
@@ -8,15 +9,20 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Features - Gen-Ji Digital Studio',
     description: 'Everything the platform can do - website, lead management, administration, and security.',
-    url: 'https://gen-ji.me/features',
+    url: 'https://www.gen-ji.me/features',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://gen-ji.me/features',
+    canonical: 'https://www.gen-ji.me/features',
   },
 };
 
 export default function FeaturesPage() {
-  return <FeaturesPageClient />;
+  return (
+    <PremiumLayout>
+      <FeaturesPageClient />
+    </PremiumLayout>
+  );
 }
+
 

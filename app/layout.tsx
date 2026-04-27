@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { cn } from '@/lib/utils';
 
-const siteUrl = 'https://gen-ji.me';
+const siteUrl = 'https://www.gen-ji.me';
 const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 
 export const viewport: Viewport = {
@@ -183,3 +183,4 @@ export default function RootLayout({
     </html>
   );
 }
+

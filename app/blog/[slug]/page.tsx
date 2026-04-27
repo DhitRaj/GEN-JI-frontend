@@ -11,7 +11,7 @@ interface BlogPostPageProps {
   };
 }
 
-const siteUrl = 'https://gen-ji.me';
+const siteUrl = 'https://www.gen-ji.me';
 
 export const dynamicParams = false;
 
