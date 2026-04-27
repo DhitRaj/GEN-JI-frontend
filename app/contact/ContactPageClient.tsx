@@ -371,7 +371,7 @@ export default function ContactPageClient() {
                   <h3 className="text-3xl md:text-4xl font-black text-white mb-2">Dhiraj Kumar</h3>
                   <p className="text-cyan-400 font-bold text-lg mb-4">CEO & Founder, Gen-Ji Digital Studio</p>
                   <p className="text-slate-300 text-lg leading-relaxed mb-6">
-                    "We're passionate about building next-generation digital experiences. Every project is a partnership, and your success is our success. Let's create something extraordinary together."
+                    &quot;We&apos;re passionate about building next-generation digital experiences. Every project is a partnership, and your success is our success. Let&apos;s create something extraordinary together.&quot;
                   </p>
                   <motion.a
                     href="tel:+916307217752"
@@ -452,7 +452,7 @@ export default function ContactPageClient() {
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal>
             <h2 className="text-5xl md:text-6xl font-black mb-6">
-              Let's Create <span className="text-cyan-400">Magic</span>
+              Let&apos;s Create <span className="text-cyan-400">Magic</span>
             </h2>
           </ScrollReveal>
 

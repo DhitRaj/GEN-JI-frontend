@@ -416,7 +416,7 @@ export default function ProjectsPageClient() {
 
           <ScrollReveal delay={0.1}>
             <p className="text-xl text-slate-300 mb-8">
-              Let's transform your vision into a powerful digital solution.
+              Let&apos;s transform your vision into a powerful digital solution.
             </p>
           </ScrollReveal>
 

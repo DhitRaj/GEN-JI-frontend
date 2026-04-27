@@ -415,7 +415,7 @@ export default function AboutPageClient() {
 
           <ScrollReveal delay={0.1}>
             <p className="text-xl text-slate-300 mb-8">
-              Let's create something extraordinary. Get in touch today!
+              Let&apos;s create something extraordinary. Get in touch today!
             </p>
           </ScrollReveal>
 

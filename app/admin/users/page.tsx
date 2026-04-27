@@ -298,7 +298,7 @@ export default function UsersPage() {
 
             {users.length === 0 && (
               <div style={{ padding: '40px', textAlign: 'center', color: '#64748b' }}>
-                No users found. Click "Add User" to create one.
+                No users found. Click &quot;Add User&quot; to create one.
               </div>
             )}
           </div>

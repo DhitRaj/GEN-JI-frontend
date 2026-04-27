@@ -379,7 +379,7 @@ export default function PremiumHomepage() {
 
           <ScrollReveal delay={0.2}>
             <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-              Web, Apps, AI Systems & 3D Interfaces. From concept to scale, we craft digital products that convert.
+              Web, Apps, AI Systems &amp; 3D Interfaces. From concept to scale, we craft digital products that convert.
             </p>
           </ScrollReveal>
 

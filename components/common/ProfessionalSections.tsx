@@ -103,7 +103,7 @@ export function AboutGenJiSection() {
         >
           <h3 className="text-2xl md:text-3xl font-black text-white mb-4">50+ Projects Delivered</h3>
           <p className="text-slate-300 text-lg mb-6">
-            We've helped startups and enterprises build digital products that scale. Our team brings expertise in web development, mobile apps, and cloud architecture.
+            We&apos;ve helped startups and enterprises build digital products that scale. Our team brings expertise in web development, mobile apps, and cloud architecture.
           </p>
           <div className="grid md:grid-cols-4 gap-6">
             {[

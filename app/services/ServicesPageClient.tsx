@@ -233,7 +233,7 @@ export default function ServicesPageClient() {
 
           <ScrollReveal delay={0.2}>
             <p className="text-xl text-slate-300 mb-12 max-w-2xl mx-auto leading-relaxed">
-              Comprehensive digital solutions tailored to your business needs. From web development to AI integration, we've got you covered.
+              Comprehensive digital solutions tailored to your business needs. From web development to AI integration, we&apos;ve got you covered.
             </p>
           </ScrollReveal>
 
@@ -450,7 +450,7 @@ export default function ServicesPageClient() {
 
           <ScrollReveal delay={0.1}>
             <p className="text-xl text-slate-300 mb-8">
-              Let's discuss your project and find the perfect solution for your needs.
+              Let&apos;s discuss your project and find the perfect solution for your needs.
             </p>
           </ScrollReveal>
 
