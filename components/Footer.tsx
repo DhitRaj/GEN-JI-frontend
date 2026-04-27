@@ -5,6 +5,12 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 export default function Footer() {
+  const socialLinks = [
+    { icon: FaGithub, href: 'https://github.com/genji-studio', label: 'GitHub' },
+    { icon: FaLinkedin, href: 'https://linkedin.com/company/genji-studio', label: 'LinkedIn' },
+    { icon: FaTwitter, href: 'https://twitter.com/genji_studio', label: 'Twitter' },
+  ];
+
   return (
     <footer className="w-full py-20 px-6 relative z-10">
       <div className="max-w-7xl mx-auto">
@@ -25,14 +31,14 @@ export default function Footer() {
             <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
           </div>
 
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-16">
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-16">
             {/* BRAND */}
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="lg:col-span-4"
+              className="lg:col-span-3"
             >
               <h3 className="text-4xl font-black mb-6 text-white tracking-tighter italic uppercase bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-cyan-400">
                 Gen-Ji
@@ -42,10 +48,13 @@ export default function Footer() {
               </p>
 
               <div className="mt-8 flex gap-6">
-                {[FaGithub, FaLinkedin, FaTwitter].map((Icon, i) => (
+                {socialLinks.map((item, i) => (
                   <motion.a 
                     key={i} 
-                    href="#"
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={item.label}
                     initial={{ opacity: 0, scale: 0 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
@@ -53,7 +62,7 @@ export default function Footer() {
                     whileHover={{ scale: 1.2, rotate: 5 }}
                     className="w-12 h-12 rounded-2xl border border-white/20 flex items-center justify-center text-slate-400 hover:text-white hover:border-purple-500/50 transition-all bg-white/5 shadow-lg backdrop-blur-sm"
                   >
-                    <Icon size={24} />
+                    <item.icon size={24} />
                   </motion.a>
                 ))}
               </div>
@@ -69,7 +78,7 @@ export default function Footer() {
             >
               <h4 className="font-bold mb-6 text-white uppercase tracking-widest text-sm">Pages</h4>
               <ul className="space-y-4 text-slate-400 text-lg">
-                {['About', 'Services', 'Projects', 'Contact'].map((item, i) => (
+                {['About', 'Services', 'Projects', 'Blog', 'Contact'].map((item, i) => (
                   <motion.li 
                     key={item}
                     initial={{ opacity: 0, x: -20 }}
@@ -102,8 +111,37 @@ export default function Footer() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: 0.5 + i * 0.1 }}
                   >
-                    <Link href="/services" className="hover:text-white transition hover:translate-x-2 inline-block text-nowrap">
+                    <Link href="/services" className="hover:text-white transition hover:translate-x-2 inline-block">
                       {item}
+                    </Link>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.45 }}
+              className="lg:col-span-2"
+            >
+              <h4 className="font-bold mb-6 text-white uppercase tracking-widest text-sm">Legal</h4>
+              <ul className="space-y-4 text-slate-400 text-lg">
+                {[
+                  { label: 'Privacy Policy', href: '/privacy-policy' },
+                  { label: 'Terms', href: '/terms' },
+                  { label: 'Refund Policy', href: '/refund-policy' },
+                ].map((item, i) => (
+                  <motion.li 
+                    key={item.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.55 + i * 0.1 }}
+                  >
+                    <Link href={item.href} className="hover:text-white transition hover:translate-x-2 inline-block">
+                      {item.label}
                     </Link>
                   </motion.li>
                 ))}
@@ -116,16 +154,16 @@ export default function Footer() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="lg:col-span-4"
+              className="lg:col-span-3"
             >
-              <div className="p-8 rounded-3xl bg-white/5 border border-white/20 h-full flex flex-col justify-between backdrop-blur-sm">
+              <div className="p-6 xl:p-8 rounded-3xl bg-white/5 border border-white/20 h-full flex flex-col justify-between backdrop-blur-sm">
                 <div>
                   <p className="text-xs font-black uppercase tracking-[0.3em] text-purple-400 mb-2 italic">Start Here</p>
-                  <h4 className="text-3xl font-black text-white leading-tight">Ready to build the future?</h4>
+                  <h4 className="text-2xl xl:text-3xl font-black text-white leading-tight">Ready to build the future?</h4>
                 </div>
 
                 <div className="mt-8">
-                  <Link href="/contact" className="inline-block px-10 py-4 rounded-full bg-gradient-to-r from-purple-600 to-cyan-600 text-white font-black uppercase tracking-widest hover:from-purple-500 hover:to-cyan-500 transition-all shadow-lg text-center">
+                  <Link href="/contact" className="inline-flex w-full items-center justify-center whitespace-nowrap px-6 xl:px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 to-cyan-600 text-white font-black uppercase tracking-[0.12em] hover:from-purple-500 hover:to-cyan-500 transition-all shadow-lg text-center">
                     Get in touch
                   </Link>
                 </div>
@@ -138,7 +176,7 @@ export default function Footer() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="relative z-10 border-t border-white/10 pt-10 mt-16 text-center text-slate-500 text-xs tracking-[0.8em] uppercase font-light"
+            className="relative z-10 border-t border-white/10 pt-10 mt-16 text-center text-slate-500 text-xs tracking-[0.35em] uppercase font-light"
           >
             &copy; 2026 GEN-JI DIGITAL STUDIO / BOLDLY BUILT
           </motion.div>

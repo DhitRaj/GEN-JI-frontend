@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { PremiumLayout } from '@/components/common/PremiumBackground';
 import ProjectsPageClient from './ProjectsPageClient';
 
 export const metadata: Metadata = {
@@ -27,6 +28,10 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage() {
-  return <ProjectsPageClient />;
+  return (
+    <PremiumLayout>
+      <ProjectsPageClient />
+    </PremiumLayout>
+  );
 }
 

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { PremiumLayout } from '@/components/common/PremiumBackground';
 import BlogPageClient from './BlogPageClient';
 
 export const metadata: Metadata = {
@@ -27,6 +28,10 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
-  return <BlogPageClient />;
+  return (
+    <PremiumLayout>
+      <BlogPageClient />
+    </PremiumLayout>
+  );
 }
 

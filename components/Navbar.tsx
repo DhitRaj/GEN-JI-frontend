@@ -30,7 +30,7 @@ export default function Navbar() {
 
   return (
     <nav className="w-full">
-      <div className="flex items-center justify-between gap-4 rounded-[1.75rem] border border-white/10 px-4 py-3 md:px-6 md:py-4 shadow-2xl backdrop-blur-[80px] bg-white/5 relative overflow-hidden">
+      <div className="flex items-center justify-between gap-4 rounded-[1.75rem] border border-white/10 px-4 py-3 md:px-6 md:py-4 shadow-2xl backdrop-blur-[80px] bg-slate-900/55 relative overflow-hidden">
         {/* Oily/Liquid effect overlay */}
         <div className="absolute inset-0 opacity-20 pointer-events-none">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-purple-500/30 via-transparent to-cyan-500/30 animate-pulse" />
@@ -53,7 +53,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        <div className="hidden lg:flex items-center gap-2 xl:gap-3 rounded-full border border-white/10 bg-white/5 p-2 backdrop-blur-md relative z-10">
+        <div className="hidden lg:flex items-center gap-2 xl:gap-3 rounded-full border border-white/10 bg-slate-900/55 p-2 backdrop-blur-md relative z-10">
           {navItems.map((item) => (
             <Link key={item.href} href={item.href} className={navLinkClass(item.href)}>
               {item.label}
@@ -61,13 +61,13 @@ export default function Navbar() {
           ))}
         </div>
 
-        <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden p-2.5 rounded-full border border-white/10 bg-white/5 text-white relative z-10">
+        <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden p-2.5 rounded-full border border-white/10 bg-slate-900/55 text-white relative z-10">
           {isOpen ? <MdClose size={24} /> : <MdMenu size={24} />}
         </button>
       </div>
 
       {isOpen && (
-        <div className="lg:hidden mt-3 rounded-[1.5rem] p-4 space-y-3 border border-white/10 bg-white/5 backdrop-blur-[80px] animate-in fade-in zoom-in-95 shadow-2xl relative overflow-hidden">
+        <div className="lg:hidden mt-3 rounded-[1.5rem] p-4 space-y-3 border border-white/10 bg-slate-900/60 backdrop-blur-[80px] animate-in fade-in zoom-in-95 shadow-2xl relative overflow-hidden">
           {/* Oily effect */}
           <div className="absolute inset-0 opacity-20 pointer-events-none">
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-500/30 via-transparent to-cyan-500/30 animate-pulse" />

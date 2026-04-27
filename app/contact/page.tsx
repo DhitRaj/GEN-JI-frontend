@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { PremiumLayout } from '@/components/common/PremiumBackground';
 import ContactPageClient from './ContactPageClient';
 
 export const metadata: Metadata = {
@@ -32,6 +33,10 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  return <ContactPageClient />;
+  return (
+    <PremiumLayout>
+      <ContactPageClient />
+    </PremiumLayout>
+  );
 }
 

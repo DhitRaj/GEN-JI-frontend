@@ -1,9 +1,11 @@
 import { Metadata } from 'next';
+import { PremiumLayout } from '@/components/common/PremiumBackground';
 import ServicesPageClient from './ServicesPageClient';
 
 export const metadata: Metadata = {
-  title: 'Custom Software Development Services India | Web & Mobile Apps | Gen-Ji',
-  description: 'Expert custom software development services in India — web apps, mobile apps, backend systems, UI/UX design, and cloud solutions. Trusted by 30+ startups and enterprises. Get a free quote.',
+  title: 'Custom Software Development Services India | Web and Mobile Apps | Gen-Ji',
+  description:
+    'Expert custom software development services in India - web apps, mobile apps, backend systems, UI/UX design, and cloud solutions. Trusted by startups and enterprises.',
   keywords: [
     'custom software development services India',
     'web application development India',
@@ -20,7 +22,8 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Custom Software Development Services India | Gen-Ji',
-    description: 'Expert custom software development — web apps, mobile apps, backend systems. Trusted by 30+ startups. Free consultation available.',
+    description:
+      'Expert custom software development - web apps, mobile apps, backend systems. Trusted by startups. Free consultation available.',
     url: 'https://www.gen-ji.me/services',
     type: 'website',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Custom Software Development Services India' }],
@@ -29,6 +32,9 @@ export const metadata: Metadata = {
 };
 
 export default function ServicesPage() {
-  return <ServicesPageClient />;
+  return (
+    <PremiumLayout>
+      <ServicesPageClient />
+    </PremiumLayout>
+  );
 }
-

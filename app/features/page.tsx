@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { PremiumLayout } from '@/components/common/PremiumBackground';
 import FeaturesPageClient from './FeaturesPageClient';
 
 export const metadata: Metadata = {
@@ -17,7 +18,11 @@ export const metadata: Metadata = {
 };
 
 export default function FeaturesPage() {
-  return <FeaturesPageClient />;
+  return (
+    <PremiumLayout>
+      <FeaturesPageClient />
+    </PremiumLayout>
+  );
 }
 
 
