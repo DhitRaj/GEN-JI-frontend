@@ -384,7 +384,7 @@ export default function HomePageClient() {
           >
             <h2 className="text-4xl md:text-5xl font-black mb-6">Ready to Build Something Amazing?</h2>
             <p className="text-xl text-slate-300 mb-8">
-              Let's transform your vision into reality. Get in touch with our team today.
+              Let&apos;s transform your vision into reality. Get in touch with our team today.
             </p>
             <Link
               href="/contact"

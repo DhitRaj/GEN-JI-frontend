@@ -200,7 +200,7 @@ export default function ServicesPage() {
             {services.length === 0 ? (
               <div style={{ textAlign: 'center', padding: '60px', background: 'white', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
                 <p style={{ margin: '0 0 8px 0', fontSize: '16px', fontWeight: '600', color: '#0f172a' }}>No services yet</p>
-                <p style={{ margin: 0, fontSize: '14px', color: '#64748b' }}>Click "Add Service" to create your first service</p>
+                <p style={{ margin: 0, fontSize: '14px', color: '#64748b' }}>Click &quot;Add Service&quot; to create your first service</p>
               </div>
             ) : (
               services.map((service) => (

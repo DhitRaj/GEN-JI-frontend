@@ -582,7 +582,7 @@ export default function PremiumHomepage() {
                   <h3 className="text-2xl font-bold text-white mb-2">Dhiraj Kumar</h3>
                   <p className="text-cyan-400 font-semibold mb-3">CEO & Founder, Gen-Ji Digital Studio</p>
                   <p className="text-slate-300 mb-4">
-                    "We're passionate about building next-generation digital experiences. Every project is a partnership, and your success is our success."
+                    &quot;We&apos;re passionate about building next-generation digital experiences. Every project is a partnership, and your success is our success.&quot;
                   </p>
                   <a
                     href="tel:+916307217752"
@@ -634,7 +634,7 @@ export default function PremiumHomepage() {
                         <span key={j} className="text-yellow-400">⭐</span>
                       ))}
                     </div>
-                    <p className="text-slate-300 mb-4">"{testimonial.text}"</p>
+                    <p className="text-slate-300 mb-4">&quot;{testimonial.text}&quot;</p>
                     <div>
                       <p className="font-bold text-white">{testimonial.name}</p>
                       <p className="text-sm text-slate-400">{testimonial.role}</p>
@@ -680,7 +680,7 @@ export default function PremiumHomepage() {
 
           <ScrollReveal delay={0.1}>
             <p className="text-xl text-slate-300 mb-8">
-              Let's transform your vision into a next-gen digital product.
+              Let&apos;s transform your vision into a next-gen digital product.
             </p>
           </ScrollReveal>
 
