@@ -225,7 +225,7 @@ export default function MediaPage() {
               <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '60px', background: 'white', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
                 <div style={{ fontSize: '48px', marginBottom: '16px' }}>🖼️</div>
                 <p style={{ margin: '0 0 8px 0', fontSize: '16px', fontWeight: '600', color: '#0f172a' }}>No media yet</p>
-                <p style={{ margin: 0, fontSize: '14px', color: '#64748b' }}>Click "Upload Images" to add your first media</p>
+                <p style={{ margin: 0, fontSize: '14px', color: '#64748b' }}>Click &quot;Upload Images&quot; to add your first media</p>
               </div>
             ) : (
               media.map((item) => (

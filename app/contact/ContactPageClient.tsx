@@ -132,7 +132,7 @@ export default function ContactPageClient() {
 
           <ScrollReveal delay={0.2}>
             <p className="text-xl text-slate-300 mb-12 max-w-2xl mx-auto leading-relaxed">
-              Ready to bring your vision to life? Let's discuss your project requirements and build something extraordinary together.
+              Ready to bring your vision to life? Let&apos;s discuss your project requirements and build something extraordinary together.
             </p>
           </ScrollReveal>
 
@@ -338,7 +338,7 @@ export default function ContactPageClient() {
               <h2 className="text-5xl md:text-6xl font-black mb-4">
                 Tell Us About Your <span className="text-cyan-400">Project</span>
               </h2>
-              <p className="text-slate-300 text-lg">Share your requirements and let's create something amazing together</p>
+              <p className="text-slate-300 text-lg">Share your requirements and let&apos;s create something amazing together</p>
             </div>
           </ScrollReveal>
 
@@ -458,7 +458,7 @@ export default function ContactPageClient() {
 
           <ScrollReveal delay={0.1}>
             <p className="text-xl text-slate-300 mb-8">
-              Your next big project is just one conversation away. Let's talk!
+              Your next big project is just one conversation away. Let&apos;s talk!
             </p>
           </ScrollReveal>
 
