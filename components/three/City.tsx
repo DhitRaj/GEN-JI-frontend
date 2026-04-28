@@ -241,7 +241,7 @@ export default function City() {
         (Math.random() - 0.5) * 100,
         (Math.random() - 0.5) * 60,
         (Math.random() - 0.5) * 600 - 100,
-      ],
+      ] as [number, number, number],
       size: Math.random() * 0.08 + 0.03,
     }));
   }, []);

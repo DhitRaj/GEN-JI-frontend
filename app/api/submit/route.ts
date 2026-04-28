@@ -1,15 +1,29 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { DesignRequest, APIResponse } from '../../../src/types/design';
+import { APIResponse, DesignRequest } from '../../../src/types/design';
 
-/**
- * POST /api/submit
- * Handles design request submissions
- */
+const BACKEND_URL = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000').replace(/\/$/, '');
+
+function formatRequirement(payload: any) {
+  const lines = [
+    '[DESIGN_REQUEST]',
+    `Design Slug: ${payload.designSlug}`,
+    `Design Title: ${payload.designTitle || 'Unknown Design'}`,
+    '',
+    'Message:',
+    `${payload.message || ''}`,
+  ];
+
+  if (payload.themeCustomization) {
+    lines.push('', 'Theme Customization:', JSON.stringify(payload.themeCustomization));
+  }
+
+  return lines.join('\n');
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
 
-    // Validate required fields
     if (!body.name || !body.email || !body.message || !body.designSlug) {
       return NextResponse.json(
         {
@@ -21,39 +35,38 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Basic email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(body.email)) {
+    const response = await fetch(`${BACKEND_URL}/api/clients/submit`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: body.name,
+        email: body.email,
+        requirement: formatRequirement(body),
+      }),
+    });
+
+    const data = await response.json();
+    if (!response.ok) {
       return NextResponse.json(
         {
           success: false,
-          message: 'Invalid email format',
-          error: 'Please provide a valid email address',
+          message: data?.error || 'Failed to submit request',
+          error: data?.error || 'Unknown backend error',
         } as APIResponse,
-        { status: 400 }
+        { status: response.status }
       );
     }
 
-    // Create design request object
     const designRequest: DesignRequest = {
-      id: `req_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
-      name: body.name.trim(),
-      email: body.email.trim(),
-      message: body.message.trim(),
+      id: data.client?._id,
+      name: body.name,
+      email: body.email,
+      message: body.message,
       designSlug: body.designSlug,
       designTitle: body.designTitle || 'Unknown Design',
       status: 'pending',
-      submittedAt: new Date().toISOString(),
+      submittedAt: data.client?.createdAt || new Date().toISOString(),
     };
-
-    // TODO: Save to database (e.g., MongoDB, Supabase, etc.)
-    console.log('Design request submitted:', designRequest);
-
-    // For now, return success response
-    // In production, you would:
-    // 1. Save to database
-    // 2. Send confirmation email
-    // 3. Notify admin
 
     return NextResponse.json(
       {
@@ -63,25 +76,19 @@ export async function POST(request: NextRequest) {
       } as APIResponse<DesignRequest>,
       { status: 201 }
     );
-  } catch (error) {
-    console.error('Error processing design request:', error);
-
+  } catch (error: any) {
     return NextResponse.json(
       {
         success: false,
         message: 'An error occurred while processing your request',
-        error: error instanceof Error ? error.message : 'Unknown error',
+        error: error?.message || 'Unknown error',
       } as APIResponse,
       { status: 500 }
     );
   }
 }
 
-/**
- * GET /api/submit
- * Returns allowed methods
- */
-export async function GET(request: NextRequest) {
+export async function GET() {
   return NextResponse.json(
     {
       success: false,

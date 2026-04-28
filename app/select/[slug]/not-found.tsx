@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
+import Navbar from '../../../components/Navbar';
+import Footer from '../../../components/Footer';
 
 export const metadata = {
   title: 'Design Not Found',
@@ -23,7 +23,7 @@ export default function NotFound() {
           </h1>
 
           <p className="text-lg text-slate-600 dark:text-slate-400 mb-8">
-            Sorry, the design you're looking for doesn't exist or has been removed.
+            Sorry, the design you&apos;re looking for doesn&apos;t exist or has been removed.
           </p>
 
           <div className="flex gap-4 justify-center flex-wrap">

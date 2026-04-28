@@ -32,9 +32,9 @@ export default function HeroOverlay() {
       {/* 2. OUR MISSION */}
       <Section>
         <GlassCard>
-          <h2 className="text-5xl md:text-9xl font-black mb-8 tracking-tighter uppercase leading-none bg-clip-text text-transparent bg-gradient-to-br from-slate-900 via-slate-700 to-slate-500">
+          <h1 className="text-5xl md:text-9xl font-black mb-8 tracking-tighter uppercase leading-none bg-clip-text text-transparent bg-gradient-to-br from-slate-900 via-slate-700 to-slate-500">
             WE BUILD <span className="italic">SYSTEMS</span>
-          </h2>
+          </h1>
           <p className="text-xl md:text-3xl text-slate-600 font-light leading-relaxed max-w-3xl mx-auto">
             Genji is a high-performance digital studio. We specialize in architecting secure, scalable, and visually stunning digital products.
           </p>

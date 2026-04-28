@@ -5,8 +5,18 @@ import { DesignCard } from '../../src/components/DesignCard';
 import { getAllDesigns, getDesignsByCategory } from '../../src/data/designs';
 
 export const metadata = {
-  title: 'Design Templates - Antigracity',
-  description: 'Browse and select from our collection of professional design templates.',
+  title: 'Design Templates | Gen-Ji Digital Studio',
+  description: 'Browse and select from our collection of professional design templates. Explore modern, responsive designs for your next project.',
+  keywords: ['design templates', 'web design', 'UI templates', 'responsive designs', 'professional templates'],
+  openGraph: {
+    title: 'Design Templates - Gen-Ji Digital Studio',
+    description: 'Browse our collection of professional design templates.',
+    url: 'https://www.gen-ji.me/designs',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://www.gen-ji.me/designs',
+  },
 };
 
 export default function DesignsPage() {
@@ -80,3 +90,4 @@ export default function DesignsPage() {
     </main>
   );
 }
+
