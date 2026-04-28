@@ -180,7 +180,7 @@ export default function ServicesPageClient() {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await axios.get(`${processSteps.env.NEXT_PUBLIC_API_URL}/api/services`);
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/services`);
         setServices(response.data.services || []);
       } catch (error) {
         console.error('Failed to fetch services:', error);
