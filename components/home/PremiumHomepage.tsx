@@ -585,11 +585,13 @@ export default function PremiumHomepage() {
                     &quot;We&apos;re passionate about building next-generation digital experiences. Every project is a partnership, and your success is our success.&quot;
                   </p>
                   <a
-                    href="tel:+916307217752"
+                    href="https://wa.me/917052207833"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-6 py-3 bg-cyan-500/20 border border-cyan-500/50 rounded-lg hover:bg-cyan-500/30 transition-all"
                   >
-                    <span>📞</span>
-                    <span className="font-semibold">+91 6307217752</span>
+                    <span>�</span>
+                    <span className="font-semibold">WhatsApp Us</span>
                   </a>
                 </div>
               </div>

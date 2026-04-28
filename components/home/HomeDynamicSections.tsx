@@ -70,7 +70,7 @@ const itemVariants = {
 };
 
 function resolveApiBase(): string {
-  const configured = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+  const configured = process.env.NEXT_PUBLIC_API_URL || 'https://gen-ji-backend.onrender.com';
   const trimmed = configured.replace(/\/$/, '');
 
   if (/\/api$/i.test(trimmed)) {
