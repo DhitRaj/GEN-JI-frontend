@@ -112,7 +112,7 @@ export default function ServicesPage() {
         alert(editingService ? 'Service updated successfully!' : 'Service created successfully!');
         setShowModal(false);
         setEditingService(null);
-        setFormData({ title: '', description: '', icon: '', features: '', price: '' });
+        setFormData({ title: '', description: '', icon: '', image: '', features: '', price: '' });
         fetchServices();
       } else {
         alert(data.error || 'Failed to save service');

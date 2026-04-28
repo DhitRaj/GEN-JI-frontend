@@ -271,13 +271,15 @@ export default function AboutPageClient() {
                     With years of experience in web development and a passion for innovation, Dhiraj leads Gen-Ji with a vision to create digital solutions that make a real difference. His expertise spans full-stack development, system architecture, and product strategy.
                   </p>
                   <motion.a
-                    href="tel:+916307217752"
+                    href="https://wa.me/917052207833"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="inline-flex items-center gap-2 px-8 py-4 bg-cyan-500/20 border border-cyan-500/50 rounded-lg hover:bg-cyan-500/30 transition-all font-semibold"
                   >
-                    <span>📞</span>
-                    <span>+91 6307217752</span>
+                    <span>💬</span>
+                    <span>WhatsApp Us</span>
                   </motion.a>
                 </div>
               </div>

@@ -147,13 +147,15 @@ export default function ContactPageClient() {
                 Start Your Project
               </motion.a>
               <motion.a
-                href="tel:+916307217752"
+                href="https://wa.me/917052207833"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-10 py-4 border-2 border-cyan-500/50 rounded-lg font-bold text-lg hover:bg-cyan-500/10 transition-all flex items-center justify-center gap-2"
               >
-                <span>📞</span>
-                <span>+91 6307217752</span>
+                <span>💬</span>
+                <span>WhatsApp Us</span>
               </motion.a>
             </div>
           </ScrollReveal>
@@ -208,11 +210,11 @@ export default function ContactPageClient() {
           >
             {[
               {
-                icon: '📞',
-                title: 'Phone',
-                desc: 'Call us directly for immediate assistance',
-                contact: '+91 6307217752',
-                link: 'tel:+916307217752',
+                icon: '💬',
+                title: 'WhatsApp',
+                desc: 'Message us directly on WhatsApp',
+                contact: '+91 7052207833',
+                link: 'https://wa.me/917052207833',
               },
               {
                 icon: '✉️',
@@ -374,13 +376,15 @@ export default function ContactPageClient() {
                     &quot;We&apos;re passionate about building next-generation digital experiences. Every project is a partnership, and your success is our success. Let&apos;s create something extraordinary together.&quot;
                   </p>
                   <motion.a
-                    href="tel:+916307217752"
+                    href="https://wa.me/917052207833"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="inline-flex items-center gap-2 px-8 py-4 bg-cyan-500/20 border border-cyan-500/50 rounded-lg hover:bg-cyan-500/30 transition-all font-semibold"
                   >
-                    <span>📞</span>
-                    <span>Connect with Dhiraj</span>
+                    <span>💬</span>
+                    <span>WhatsApp Dhiraj</span>
                   </motion.a>
                 </div>
               </div>
