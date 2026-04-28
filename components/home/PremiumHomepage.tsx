@@ -634,7 +634,7 @@ export default function PremiumHomepage() {
                         <span key={j} className="text-yellow-400">⭐</span>
                       ))}
                     </div>
-                    <p className="text-slate-300 mb-4>&quot;{testimonial.text}&quot;</p>
+                    <p className="text-slate-300 mb-4">&quot;{testimonial.text}&quot;</p>
                     <div>
                       <p className="font-bold text-white">{testimonial.name}</p>
                       <p className="text-sm text-slate-400">{testimonial.role}</p>
