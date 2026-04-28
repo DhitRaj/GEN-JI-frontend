@@ -265,7 +265,7 @@ export default function AboutPageClient() {
                   </div>
                 </motion.div>
                 <div className="flex-1 text-center md:text-left">
-                  <h3 className="text-3xl md:text-4xl font-black text-white mb-2">Dhiraj Kumar</h3>
+                  <h3 className="text-3xl md:text-4xl font-black text-white mb-2">Dhiraj Yadav</h3>
                   <p className="text-cyan-400 font-bold text-lg mb-4">CEO & Founder</p>
                   <p className="text-slate-300 text-lg leading-relaxed mb-6">
                     With years of experience in web development and a passion for innovation, Dhiraj leads Gen-Ji with a vision to create digital solutions that make a real difference. His expertise spans full-stack development, system architecture, and product strategy.

@@ -579,7 +579,7 @@ export default function PremiumHomepage() {
                   </div>
                 </div>
                 <div className="flex-1 text-left">
-                  <h3 className="text-2xl font-bold text-white mb-2">Dhiraj Kumar</h3>
+                  <h3 className="text-2xl font-bold text-white mb-2">Dhiraj Yadav</h3>
                   <p className="text-cyan-400 font-semibold mb-3">CEO & Founder, Gen-Ji Digital Studio</p>
                   <p className="text-slate-300 mb-4">
                     &quot;We&apos;re passionate about building next-generation digital experiences. Every project is a partnership, and your success is our success.&quot;

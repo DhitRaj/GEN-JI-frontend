@@ -370,7 +370,7 @@ export default function ContactPageClient() {
                   </div>
                 </motion.div>
                 <div className="flex-1 text-center md:text-left">
-                  <h3 className="text-3xl md:text-4xl font-black text-white mb-2">Dhiraj Kumar</h3>
+                  <h3 className="text-3xl md:text-4xl font-black text-white mb-2">Dhiraj Yadav</h3>
                   <p className="text-cyan-400 font-bold text-lg mb-4">CEO & Founder, Gen-Ji Digital Studio</p>
                   <p className="text-slate-300 text-lg leading-relaxed mb-6">
                     &quot;We&apos;re passionate about building next-generation digital experiences. Every project is a partnership, and your success is our success. Let&apos;s create something extraordinary together.&quot;
