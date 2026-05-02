@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from 'next';
+﻿import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { cn } from '@/lib/utils';
 
@@ -177,10 +177,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
-      <body className="antialiased relative isolate overflow-x-hidden bg-white text-slate-900">
+      <body className="antialiased relative isolate overflow-x-hidden bg-rose-50 text-slate-900">
         {children}
       </body>
     </html>
   );
 }
+
 

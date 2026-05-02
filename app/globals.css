@@ -4,6 +4,17 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --brand-bg: #fff1f5;
+  --brand-surface: #ffe4e6;
+  --brand-surface-2: #f0f9ff;
+  --brand-border: #e2e8f0;
+  --brand-text: #0f172a;
+  --brand-muted: #475569;
+  --brand-accent: #0284c7;
+  --brand-accent-hover: #0369a1;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +23,7 @@
 
 html, body {
   scroll-behavior: smooth;
-  background: #ffffff;
+  background: var(--brand-bg);
   width: 100%;
   min-height: 100%;
   overflow-x: hidden;
@@ -21,7 +32,63 @@ html, body {
 
 body {
   font-family: 'Space Grotesk', 'Manrope', sans-serif;
-  color: #0f172a;
+  color: var(--brand-text);
+}
+
+@layer utilities {
+  .bg-brand {
+    background-color: var(--brand-bg);
+  }
+
+  .bg-brand-surface {
+    background-color: var(--brand-surface);
+  }
+
+  .bg-brand-surface-2 {
+    background-color: var(--brand-surface-2);
+  }
+
+  .text-brand {
+    color: var(--brand-text);
+  }
+
+  .text-brand-muted {
+    color: var(--brand-muted);
+  }
+
+  .border-brand {
+    border-color: var(--brand-border);
+  }
+
+  .btn-brand {
+    background-color: var(--brand-accent);
+    color: #ffffff;
+  }
+
+  .btn-brand:hover {
+    background-color: var(--brand-accent-hover);
+  }
+
+  .section-soft {
+    background: linear-gradient(180deg, rgba(255, 228, 230, 0.45) 0%, rgba(255, 228, 230, 0.28) 100%);
+  }
+
+  .section-alt {
+    background: linear-gradient(180deg, rgba(240, 249, 255, 0.38) 0%, rgba(240, 249, 255, 0.24) 100%);
+  }
+
+  .card-soft {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-color: var(--brand-border);
+  }
+
+  .card-pink {
+    background-color: rgba(255, 228, 230, 0.35);
+  }
+
+  .card-sky {
+    background-color: rgba(240, 249, 255, 0.35);
+  }
 }
 
 .glass-panel {

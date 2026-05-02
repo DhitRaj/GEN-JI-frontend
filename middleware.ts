@@ -13,8 +13,14 @@ export async function middleware(request: NextRequest) {
     response.headers.set('X-Robots-Tag', 'noindex, nofollow, noarchive');
   }
 
-  // Never cache admin HTML. This avoids stale chunk references after deploy/dev restarts.
-  if (pathname === '/admin' || pathname.startsWith('/admin/')) {
+  // In development, disable HTML caching for all app routes to avoid stale chunk references.
+  // In production, keep this strict only for admin pages.
+  const shouldNoStore =
+    process.env.NODE_ENV === 'development' ||
+    pathname === '/admin' ||
+    pathname.startsWith('/admin/');
+
+  if (shouldNoStore) {
     response.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0');
     response.headers.set('Pragma', 'no-cache');
     response.headers.set('Expires', '0');

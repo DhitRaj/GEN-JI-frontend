@@ -1,5 +1,5 @@
-import type { Metadata } from 'next';
-import HomeShowcasePage from '../components/home/HomeShowcasePage';
+﻿import type { Metadata } from 'next';
+import PremiumHomepage from '../components/home/PremiumHomepage';
 
 export const metadata: Metadata = {
   title: 'Gen-Ji (Gen Ji) - Web Development Company in India',
@@ -28,6 +28,7 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <HomeShowcasePage />;
+  return <PremiumHomepage />;
 }
+
 

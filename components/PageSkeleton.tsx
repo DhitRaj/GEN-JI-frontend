@@ -1,51 +1,66 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 
 export default function PageSkeleton() {
   return (
-    <main className="min-h-screen w-full bg-black flex flex-col items-center justify-center relative overflow-hidden">
-      {/* BACKGROUND AURA */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-slate-500/10 rounded-full blur-[120px] animate-pulse" />
+    <main className="relative min-h-screen w-full overflow-hidden bg-rose-50 text-slate-900">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-[-120px] top-[-120px] h-72 w-72 rounded-full bg-sky-100 blur-3xl" />
+        <div className="absolute bottom-[-120px] right-[-120px] h-72 w-72 rounded-full bg-rose-100 blur-3xl" />
       </div>
 
-      {/* LOGO / TEXT PULSE */}
-      <div className="relative z-10 flex flex-col items-center gap-6">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: [0.4, 1, 0.4], scale: [0.98, 1, 0.98] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center"
-        >
-          <h1 className="text-4xl md:text-6xl font-black tracking-[0.3em] text-white uppercase mb-2">
-            GENJI
-          </h1>
-          <div className="h-[1px] w-24 bg-gradient-to-r from-transparent via-white to-transparent" />
-        </motion.div>
-
-        {/* PROGRESS BAR SIMULATION */}
-        <div className="w-48 h-[2px] bg-white/5 rounded-full overflow-hidden relative">
-          <motion.div 
-            initial={{ x: "-100%" }}
-            animate={{ x: "100%" }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-            className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent"
+      <div className="mx-auto flex min-h-screen w-full max-w-7xl items-center px-4 py-20 md:px-6">
+        <div className="w-full rounded-3xl border border-slate-200 bg-rose-50/90 p-8 shadow-sm backdrop-blur md:p-10">
+          <motion.div
+            initial={{ opacity: 0.5 }}
+            animate={{ opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 1.6, repeat: Infinity }}
+            className="h-5 w-32 rounded-full bg-sky-100"
           />
+
+          <div className="mt-6 space-y-3">
+            <motion.div
+              initial={{ opacity: 0.5 }}
+              animate={{ opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 1.6, repeat: Infinity, delay: 0.1 }}
+              className="h-10 w-full max-w-2xl rounded-xl bg-slate-200"
+            />
+            <motion.div
+              initial={{ opacity: 0.5 }}
+              animate={{ opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 1.6, repeat: Infinity, delay: 0.2 }}
+              className="h-10 w-full max-w-xl rounded-xl bg-slate-200"
+            />
+          </div>
+
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
+            {[0, 1, 2].map((idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0.5 }}
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 1.6, repeat: Infinity, delay: 0.15 * idx }}
+                className={`h-24 rounded-2xl border ${idx % 2 === 0 ? "border-emerald-200 bg-emerald-50/70" : "border-rose-200 bg-rose-50/70"}`}
+              />
+            ))}
+          </div>
+
+          <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {[0, 1, 2, 3, 4, 5].map((idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0.5 }}
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 1.6, repeat: Infinity, delay: 0.08 * idx }}
+                className={`h-40 rounded-2xl border ${idx % 2 === 0 ? "border-slate-200 bg-slate-100" : "border-slate-200 bg-rose-50"}`}
+              />
+            ))}
+          </div>
         </div>
-
-        <p className="text-white/30 text-xs font-mono tracking-[0.5em] uppercase animate-pulse">
-          Initializing Engine
-        </p>
-      </div>
-
-      {/* DECORATIVE ELEMENTS */}
-      <div className="absolute bottom-12 left-12">
-        <div className="h-12 w-[1px] bg-gradient-to-b from-white/20 to-transparent" />
-      </div>
-      <div className="absolute top-12 right-12">
-        <div className="h-12 w-[1px] bg-gradient-to-t from-white/20 to-transparent" />
       </div>
     </main>
   );
 }
+
+
