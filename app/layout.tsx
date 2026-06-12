@@ -16,23 +16,21 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   applicationName: 'Gen-Ji Digital Studio',
   title: {
-    default: 'Gen-Ji (Gen Ji) Web Development Company in India',
+    default: 'B2B SaaS Website Design Agency India | Gen-Ji Digital Studio',
     template: '%s | Gen-Ji Digital Studio',
   },
   description:
-    'Gen-Ji (also searched as Gen Ji or Genji) is a web development company in India building custom software, mobile apps, and scalable backend systems.',
+    'Gen-Ji Digital Studio designs demo-booking websites for B2B SaaS and AI founders with fixed-scope delivery, proof-first positioning, and transparent pricing.',
   keywords: [
     'gen-ji',
     'gen ji',
     'genji',
     'gen ji digital studio',
-    'web development company India',
-    'custom software development services',
-    'hire web developers India',
-    'mobile app development company India',
-    'full stack development India',
-    'React Next.js development',
-    'Node.js development company',
+    'B2B SaaS website design',
+    'AI startup website agency',
+    'conversion website agency India',
+    'homepage copywriting',
+    'productized web design',
   ],
   authors: [{ name: 'Gen-Ji Team', url: siteUrl }],
   creator: 'Gen-Ji Digital Studio',
@@ -59,9 +57,9 @@ export const metadata: Metadata = {
     locale: 'en_IN',
     url: siteUrl,
     siteName: 'Gen-Ji Digital Studio',
-    title: 'Gen-Ji (Gen Ji) Web Development Company in India',
+    title: 'B2B SaaS Website Design Agency India | Gen-Ji Digital Studio',
     description:
-      'Top web development team in India for custom software, mobile apps, and backend systems.',
+      'Conversion-focused websites for B2B SaaS and AI founders with a clear offer, strong proof, and fixed delivery.',
     images: [
       {
         url: '/og-image.png',
@@ -74,9 +72,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Gen-Ji (Gen Ji) Web Development Company in India',
+    title: 'B2B SaaS Website Design Agency India | Gen-Ji Digital Studio',
     description:
-      'Build web apps, mobile apps, and scalable software with Gen-Ji Digital Studio.',
+      'Build a proof-first, demo-booking website with Gen-Ji Digital Studio.',
     images: ['/og-image.png'],
     creator: '@genji_studio',
   },
@@ -101,7 +99,7 @@ export default function RootLayout({
     url: siteUrl,
     logo: `${siteUrl}/logo.png`,
     description:
-      'Web development company in India specializing in custom software, mobile apps, and scalable backend systems.',
+      'Web studio focused on B2B SaaS and AI website strategy, conversion copy, and homepage design.',
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'IN',
@@ -120,11 +118,11 @@ export default function RootLayout({
     },
     areaServed: 'IN',
     serviceType: [
-      'Web Development',
-      'Mobile App Development',
-      'Custom Software Development',
-      'UI/UX Design',
-      'Backend Development',
+      'B2B SaaS Website Strategy',
+      'Conversion Copywriting',
+      'Landing Page Design',
+      'Productized Web Design',
+      'Homepage Optimization',
     ],
   };
 
@@ -177,7 +175,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
-      <body className="antialiased relative isolate overflow-x-hidden bg-rose-50 text-slate-900">
+      <body className="antialiased relative isolate overflow-x-hidden bg-brand text-brand">
         {children}
       </body>
     </html>

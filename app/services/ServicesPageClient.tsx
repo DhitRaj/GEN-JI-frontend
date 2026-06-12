@@ -52,7 +52,7 @@ export default function ServicesPageClient() {
             {loading ? <div className="py-10 text-center text-brand-muted">Loading services...</div> : (
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {services.map((service, i) => (
-                  <motion.article whileHover={{ y: -5 }} key={service._id} className={`rounded-2xl border p-6 shadow-sm ${i % 2 === 0 ? 'border-sky-200 card-sky' : 'border-rose-200 card-pink'}`}>
+                  <motion.article whileHover={{ y: -5 }} key={service._id} className={`rounded-2xl border p-6 shadow-sm ${i % 2 === 0 ? 'border-brand card-soft' : 'border-brand card-soft'}`}>
                     {service.image ? <div className="relative mb-4 h-40 overflow-hidden rounded-xl bg-slate-100"><Image src={service.image} alt={service.title} fill unoptimized className="object-cover" /></div> : null}
                     <h3 className="text-2xl font-semibold text-brand">{service.title}</h3>
                     <p className="mt-3 text-brand-muted">{service.description}</p>
@@ -67,16 +67,18 @@ export default function ServicesPageClient() {
         <motion.section initial="hidden" whileInView="visible" viewport={{ once: true }} variants={reveal} transition={{ duration: 0.5 }} className="section-soft px-4 py-16 md:px-6">
           <div className="mx-auto max-w-7xl">
             <div className="mb-14"><h2 className="text-4xl font-semibold tracking-tight md:text-5xl">Our Process</h2></div>
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">{processSteps.map((step, i) => <article key={step.num} className={`rounded-2xl border p-6 ${i % 2 === 0 ? 'border-rose-200 card-pink' : 'border-sky-200 card-sky'}`}><p className="text-sm font-semibold text-slate-500">Step {step.num}</p><h3 className="mt-2 text-xl font-semibold text-brand">{step.title}</h3><p className="mt-3 text-brand-muted">{step.desc}</p></article>)}</div>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">{processSteps.map((step, i) => <article key={step.num} className={`rounded-2xl border p-6 ${i % 2 === 0 ? 'border-brand card-soft' : 'border-brand card-soft'}`}><p className="text-sm font-semibold text-slate-500">Step {step.num}</p><h3 className="mt-2 text-xl font-semibold text-brand">{step.title}</h3><p className="mt-3 text-brand-muted">{step.desc}</p></article>)}</div>
           </div>
         </motion.section>
 
-        <section className="px-4 pb-20 pt-10 text-center md:px-6"><a href="/contact" className="mt-8 inline-flex rounded-xl btn-brand px-8 py-4 font-semibold text-white transition hover:bg-sky-700">Schedule Consultation</a></section>
+        <section className="px-4 pb-20 pt-10 text-center md:px-6"><a href="/contact" className="mt-8 inline-flex rounded-xl btn-brand px-8 py-4 font-semibold text-white transition hover:bg-orange-600">Schedule Consultation</a></section>
       </main>
       <Footer />
     </div>
   );
 }
+
+
 
 
 

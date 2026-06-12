@@ -2,25 +2,26 @@
 import PremiumHomepage from '../components/home/PremiumHomepage';
 
 export const metadata: Metadata = {
-  title: 'Gen-Ji (Gen Ji) - Web Development Company in India',
+  title: 'B2B SaaS Website Design Agency India | Gen-Ji Digital Studio',
   description:
-    'Gen-Ji Digital Studio builds conversion-focused websites, custom software, and mobile apps for startups and businesses in India.',
+    'Gen-Ji Digital Studio builds demo-booking websites for B2B SaaS and AI founders. Productized sprint, fixed timeline, proof-first homepage, and transparent pricing.',
   keywords: [
     'gen ji',
     'gen-ji',
     'genji',
-    'gen ji company',
-    'web development company in India',
-    'custom software development',
-    'hire developers India',
+    'B2B SaaS website design',
+    'AI startup website agency',
+    'conversion website agency',
+    'productized web design India',
+    'homepage copywriting',
   ],
   alternates: {
     canonical: 'https://www.gen-ji.me',
   },
   openGraph: {
-    title: 'Gen-Ji (Gen Ji) - Web Development Company in India',
+    title: 'B2B SaaS Website Design Agency India | Gen-Ji Digital Studio',
     description:
-      'Build high-performance websites and apps with Gen-Ji Digital Studio.',
+      'Conversion-focused websites for B2B SaaS and AI founders. Fixed-scope sprint, transparent pricing, and proof-first positioning.',
     url: 'https://www.gen-ji.me',
     type: 'website',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Gen-Ji Digital Studio' }],

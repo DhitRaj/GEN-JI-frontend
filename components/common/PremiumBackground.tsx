@@ -29,7 +29,7 @@ export function AnimatedBackground() {
 
     let animationId: number;
     const animate = () => {
-      ctx.fillStyle = 'rgba(6, 8, 16, 0.05)';
+      ctx.fillStyle = 'rgba(223, 243, 244, 0.08)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach((p) => {
@@ -40,7 +40,7 @@ export function AnimatedBackground() {
         if (p.y < 0) p.y = canvas.height;
         if (p.y > canvas.height) p.y = 0;
 
-        ctx.fillStyle = `rgba(0, 229, 255, ${p.opacity})`;
+        ctx.fillStyle = `rgba(249, 115, 22, ${p.opacity})`;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
@@ -66,14 +66,14 @@ export function AnimatedBackground() {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none z-0"
-      style={{ background: 'linear-gradient(135deg, #060810 0%, #0b0f1e 50%, #111827 100%)' }}
+      style={{ background: 'linear-gradient(135deg, #dff3f4 0%, #eef9fa 45%, #fff4e8 100%)' }}
     />
   );
 }
 
 export function PremiumLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative min-h-screen bg-black text-white overflow-hidden">
+    <div className="relative min-h-screen overflow-hidden bg-brand text-brand">
       <style>{`
         ::-webkit-scrollbar {
           width: 0px;
@@ -89,7 +89,7 @@ export function PremiumLayout({ children }: { children: React.ReactNode }) {
       <AnimatedBackground />
 
       {/* Vignette */}
-      <div className="fixed inset-0 pointer-events-none z-10 bg-radial-gradient opacity-30" />
+      <div className="fixed inset-0 pointer-events-none z-10 bg-radial-gradient opacity-10" />
 
       {/* Content */}
       <div className="relative z-20">

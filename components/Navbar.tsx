@@ -8,9 +8,9 @@ import { MdMenu, MdClose } from 'react-icons/md';
 const navItems = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
-  { label: 'Services', href: '/services' },
-  { label: 'Projects', href: '/projects' },
-  { label: 'Blog', href: '/blog' },
+  { label: 'Offer', href: '/services' },
+  { label: 'Case Studies', href: '/projects' },
+  { label: 'Insights', href: '/blog' },
   { label: 'Contact', href: '/contact' },
 ];
 

@@ -11,12 +11,12 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-slate-200 bg-rose-50 py-16">
+    <footer className="border-t border-brand bg-brand-surface py-16">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-12">
         <div className="lg:col-span-4">
-          <h3 className="text-2xl font-semibold tracking-tight text-slate-900">Gen-Ji Digital Studio</h3>
-          <p className="mt-4 max-w-md text-slate-600">
-            Building scalable digital solutions for modern businesses with a premium user experience and cinematic design.
+          <h3 className="text-2xl font-semibold tracking-tight text-brand">Gen-Ji Digital Studio</h3>
+          <p className="mt-4 max-w-md text-brand-muted">
+            We build modern websites and software systems that look premium, perform fast, and convert better.
           </p>
           <div className="mt-6 flex gap-3">
             {socialLinks.map((item) => (
@@ -26,7 +26,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={item.label}
-                className="rounded-lg border border-slate-200 p-3 text-slate-600 transition hover:border-slate-300 hover:text-slate-900"
+                className="rounded-lg border border-brand p-3 text-brand-muted transition hover:border-orange-300 hover:text-brand"
               >
                 <item.icon size={18} />
               </a>
@@ -35,12 +35,18 @@ export default function Footer() {
         </div>
 
         <div className="lg:col-span-2">
-          <h4 className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Pages</h4>
-          <ul className="mt-4 space-y-3 text-slate-700">
-            {['About', 'Services', 'Projects', 'Blog', 'Contact'].map((item) => (
-              <li key={item}>
-                <Link href={`/${item.toLowerCase()}`} className="hover:text-slate-900">
-                  {item}
+          <h4 className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-muted">Pages</h4>
+          <ul className="mt-4 space-y-3 text-brand">
+            {[
+              { label: 'About', href: '/about' },
+              { label: 'Offer', href: '/services' },
+              { label: 'Case Studies', href: '/projects' },
+              { label: 'Insights', href: '/blog' },
+              { label: 'Contact', href: '/contact' },
+            ].map((item) => (
+              <li key={item.label}>
+                <Link href={item.href} className="hover:text-slate-900">
+                  {item.label}
                 </Link>
               </li>
             ))}
@@ -48,8 +54,8 @@ export default function Footer() {
         </div>
 
         <div className="lg:col-span-2">
-          <h4 className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Expertise</h4>
-          <ul className="mt-4 space-y-3 text-slate-700">
+          <h4 className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-muted">Expertise</h4>
+          <ul className="mt-4 space-y-3 text-brand">
             {['Web Systems', 'Mobile Apps', 'Cloud Arch', 'Security'].map((item) => (
               <li key={item}>
                 <Link href="/services" className="hover:text-slate-900">
@@ -61,8 +67,8 @@ export default function Footer() {
         </div>
 
         <div className="lg:col-span-2">
-          <h4 className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Legal</h4>
-          <ul className="mt-4 space-y-3 text-slate-700">
+          <h4 className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-muted">Legal</h4>
+          <ul className="mt-4 space-y-3 text-brand">
             <li><Link href="/privacy-policy" className="hover:text-slate-900">Privacy Policy</Link></li>
             <li><Link href="/terms" className="hover:text-slate-900">Terms</Link></li>
             <li><Link href="/refund-policy" className="hover:text-slate-900">Refund Policy</Link></li>
@@ -70,22 +76,21 @@ export default function Footer() {
         </div>
 
         <div className="lg:col-span-2">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Start Here</p>
-          <h4 className="mt-3 text-xl font-semibold text-slate-900">Ready to build the future?</h4>
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-muted">Start Here</p>
+          <h4 className="mt-3 text-xl font-semibold text-brand">Need a high-converting website?</h4>
           <Link
             href="/contact"
-            className="mt-5 inline-flex w-full items-center justify-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+            className="mt-5 inline-flex w-full items-center justify-center rounded-xl btn-brand px-5 py-3 text-sm font-semibold text-white transition"
           >
-            Get in touch
+            Contact Us
           </Link>
         </div>
       </div>
 
-      <div className="mx-auto mt-10 max-w-7xl border-t border-slate-200 px-6 pt-6 text-center text-xs uppercase tracking-[0.2em] text-slate-500">
+      <div className="mx-auto mt-10 max-w-7xl border-t border-brand px-6 pt-6 text-center text-xs uppercase tracking-[0.2em] text-brand-muted">
         &copy; 2026 Gen-Ji Digital Studio
       </div>
     </footer>
   );
 }
-
 
